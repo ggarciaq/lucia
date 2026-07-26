@@ -1,0 +1,18 @@
+# Composer
+/vendor/
+
+# Drupal
+/web/sites/default/files/
+/web/sites/default/settings.local.php
+/web/sites/default/services.local.yml
+
+# DDEV
+.ddev/.global_commands/
+
+# IDE
+.idea/
+.vscode/
+
+# Sistema
+.DS_Store
+Thumbs.db

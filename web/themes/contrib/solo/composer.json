@@ -1,0 +1,25 @@
+{
+    "name": "drupal/solo",
+    "description": "Modern, standalone Drupal theme built with pure JavaScript and W3.CSS framework. No jQuery dependency, mobile-first design, extensive regions, and built-in color schemes.",
+    "type": "drupal-theme",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://www.drupal.org/project/solo",
+    "authors": [
+        {
+            "name": "Alaa Haddad",
+            "email": "info@alaahaddad.com",
+            "homepage": "https://alaahaddad.com",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Flash Web Center LLC",
+            "homepage": "https://flashwebcenter.com",
+            "role": "Organization"
+        }
+    ],
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/solo",
+        "source": "https://git.drupalcode.org/project/solo",
+        "docs": "https://www.drupal.org/node/3405889/"
+    }
+}

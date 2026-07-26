@@ -1,0 +1,319 @@
+/**
+ * @file
+ * Solo Preloader. Scoped under html.solo-preloader-enabled.
+ * Each style has a unique modifier: --spinner, --progress_bar, --text, --logo, --logo_text.
+ */
+
+/* Lock scroll when active (JS adds solo-preloader-active) */
+html.solo-preloader-enabled.solo-preloader-active body {
+  overflow: hidden;
+}
+
+/* Base overlay (all styles) */
+html.solo-preloader-enabled .solo-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  background-color: var(--solo-preloader-bg, transparent);
+  color: var(--r-tx, #333);
+  pointer-events: auto;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  will-change: opacity;
+  backface-visibility: hidden;
+}
+
+/* No transition when showing (e.g. on link click) so overlay appears instantly */
+html.solo-preloader-enabled .solo-preloader.solo-preloader--instant-show {
+  transition: none;
+}
+
+/* Fade out for all styles when hiding */
+html.solo-preloader-enabled .solo-preloader.solo-preloader--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+html.solo-preloader-enabled #solo-preloader.solo-preloader--removed {
+  display: none !important;
+}
+
+/* ========== Spinner style ========== */
+html.solo-preloader-enabled .solo-preloader--spinner .solo-preloader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Modern spinner: thin ring + track, percentage centered inside */
+html.solo-preloader-enabled .solo-preloader--spinner .solo-preloader__spinner-wrapper {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Subtle full-circle track (behind the spinning arc) */
+html.solo-preloader-enabled .solo-preloader--spinner .solo-preloader__spinner-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--r-tx, #333) 14%, transparent);
+  box-sizing: border-box;
+}
+
+/* Spinning arc (indeterminate progress); GPU layer for smooth animation */
+html.solo-preloader-enabled .solo-preloader--spinner .solo-preloader__spinner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--r-tx, #333);
+  box-sizing: border-box;
+  animation: solo-preloader-spin 0.82s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+@keyframes solo-preloader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Percentage centered inside the ring */
+html.solo-preloader-enabled .solo-preloader--spinner .solo-preloader__percent {
+  position: relative;
+  z-index: 1;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--r-tx, #333);
+  text-align: center;
+}
+
+/* ========== Text style ========== */
+html.solo-preloader-enabled .solo-preloader--text .solo-preloader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+html.solo-preloader-enabled .solo-preloader--text .solo-preloader__text {
+  font-size: var(--solo-preloader-text-font-size, 1.5rem);
+  line-height: var(--solo-preloader-text-line-height, 1.2);
+  font-weight: 500;
+  color: var(--r-tx);
+}
+
+/* ========== Logo style ========== */
+html.solo-preloader-enabled .solo-preloader--logo .solo-preloader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+html.solo-preloader-enabled .solo-preloader--logo .solo-preloader__logo {
+  width: var(--solo-preloader-logo-width, 160px);
+  height: var(--solo-preloader-logo-height, 80px);
+  max-width: 100%;
+  object-fit: contain;
+  opacity: var(--solo-preloader-logo-opacity, 1);
+}
+
+/* ========== Logo + text style ========== */
+html.solo-preloader-enabled .solo-preloader--logo_text .solo-preloader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+html.solo-preloader-enabled .solo-preloader--logo_text .solo-preloader__hero {
+  position: relative;
+  display: block;
+  width: var(--solo-preloader-logo-width, 260px);
+  max-width: 80vw;
+  height: var(--solo-preloader-logo-height, 140px);
+  max-height: 50vh;
+}
+
+html.solo-preloader-enabled .solo-preloader--logo_text .solo-preloader__hero-logo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: var(--solo-preloader-logo-opacity, 1);
+}
+
+html.solo-preloader-enabled .solo-preloader--logo_text .solo-preloader__hero-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1rem;
+  color: var(--r-tx);
+  font-size: var(--solo-preloader-text-font-size, 1.5rem);
+  line-height: var(--solo-preloader-text-line-height, 1.2);
+  font-weight: 600;
+  word-break: break-word;
+}
+
+/* ========== Progress bar style ========== */
+html.solo-preloader-enabled .solo-preloader--progress_bar .solo-preloader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 320px;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+html.solo-preloader-enabled .solo-preloader--progress_bar .solo-preloader__bar-track {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background-color: color-mix(in srgb, var(--r-tx, #333) 14%, transparent);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+html.solo-preloader-enabled .solo-preloader--progress_bar .solo-preloader__bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: var(--r-tx, #333);
+  border-radius: 3px;
+  transition: width 0.15s linear;
+  will-change: width;
+}
+
+html.solo-preloader-enabled .solo-preloader--progress_bar .solo-preloader__bar-percent {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--r-tx, #333);
+  text-align: center;
+}
+
+/* ========== Transition effects ========== */
+/* Fade is the default (handled by base overlay rules above). */
+
+/* Slide up: overlay slides upward while fading out */
+html.solo-preloader-enabled .solo-preloader.solo-preloader--transition-slide_up {
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+  will-change: opacity, transform;
+}
+html.solo-preloader-enabled .solo-preloader.solo-preloader--transition-slide_up.solo-preloader--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-100%);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+}
+
+/* Slide down: overlay slides downward while fading out */
+html.solo-preloader-enabled .solo-preloader.solo-preloader--transition-slide_down {
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+  will-change: opacity, transform;
+}
+html.solo-preloader-enabled .solo-preloader.solo-preloader--transition-slide_down.solo-preloader--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(100%);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+}
+
+/* Slide left: overlay slides left while fading out */
+html.solo-preloader-enabled .solo-preloader.solo-preloader--transition-slide_left {
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+  will-change: opacity, transform;
+}
+html.solo-preloader-enabled .solo-preloader.solo-preloader--transition-slide_left.solo-preloader--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-100%);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+}
+
+/* Slide right: overlay slides right while fading out */
+html.solo-preloader-enabled .solo-preloader.solo-preloader--transition-slide_right {
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+  will-change: opacity, transform;
+}
+html.solo-preloader-enabled .solo-preloader.solo-preloader--transition-slide_right.solo-preloader--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(100%);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+}
+
+/* Zoom out: overlay shrinks while fading out */
+html.solo-preloader-enabled .solo-preloader.solo-preloader--transition-zoom_out {
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+  will-change: opacity, transform;
+}
+html.solo-preloader-enabled .solo-preloader.solo-preloader--transition-zoom_out.solo-preloader--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.8);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+}
+
+/* Blur: overlay blurs out while fading */
+html.solo-preloader-enabled .solo-preloader.solo-preloader--transition-blur {
+  transition: opacity 0.4s ease, filter 0.4s ease, visibility 0.4s ease;
+  will-change: opacity, filter;
+}
+html.solo-preloader-enabled .solo-preloader.solo-preloader--transition-blur.solo-preloader--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  filter: blur(12px);
+  transition: opacity 0.4s ease, filter 0.4s ease, visibility 0.4s ease;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html.solo-preloader-enabled .solo-preloader--spinner .solo-preloader__spinner {
+    animation: none;
+    opacity: 0.8;
+  }
+
+  html.solo-preloader-enabled .solo-preloader,
+  html.solo-preloader-enabled .solo-preloader.solo-preloader--hidden {
+    transition: none;
+    transform: none;
+    filter: none;
+  }
+
+  html.solo-preloader-enabled .solo-preloader--progress_bar .solo-preloader__bar-fill {
+    transition: none;
+  }
+}

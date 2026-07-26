@@ -1,0 +1,269 @@
+/**
+ * @file
+ * Solo Menu Debug Mode - Visual Indicators
+ *
+ * These styles are only loaded when debug mode is active.
+ * They provide visual feedback for developers and help identify issues.
+ */
+
+/* ============================================
+   DEBUG MODE INDICATOR
+   ============================================ */
+
+body.solo-debug-mode::before {
+  content: '🔍 Solo Debug Mode';
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 999999;
+  background: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: monospace;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  pointer-events: none;
+  animation: solo-debug-pulse 2s ease-in-out infinite;
+}
+
+@keyframes solo-debug-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* ============================================
+   KEYBOARD FOCUS INDICATOR
+   ============================================ */
+
+.solo-keyboard-focus {
+  outline: 3px solid #2196F3 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.3) !important;
+}
+
+/* ============================================
+   STATE INDICATORS
+   ============================================ */
+
+/* Menu items with submenu */
+.solo-debug-mode li.has-sub__menu > button.dropdown-toggler::after {
+  content: ' [SM]';
+  color: #9C27B0;
+  font-size: 10px;
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+/* Active menu items */
+.solo-debug-mode li.is-active > a::before {
+  content: '✓ ';
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+/* Toggled state */
+.solo-debug-mode .toggled::after {
+  content: ' [OPEN]';
+  color: #FF9800;
+  font-size: 10px;
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+/* ============================================
+   ARIA ATTRIBUTE VISUALIZATION
+   ============================================ */
+
+/* Show aria-expanded state */
+.solo-debug-mode [aria-expanded="true"]::before {
+  content: '▼';
+  color: #4CAF50;
+  margin-right: 4px;
+  font-size: 10px;
+}
+
+.solo-debug-mode [aria-expanded="false"]::before {
+  content: '▶';
+  color: #F44336;
+  margin-right: 4px;
+  font-size: 10px;
+}
+
+/* Show aria-hidden state */
+.solo-debug-mode [aria-hidden="true"] {
+  border: 2px dashed #F44336 !important;
+  opacity: 0.5;
+}
+
+/* Show items with tabindex */
+.solo-debug-mode [tabindex="-1"] {
+  background-color: rgba(244, 67, 54, 0.1) !important;
+}
+
+.solo-debug-mode [tabindex="0"] {
+  background-color: rgba(76, 175, 80, 0.1) !important;
+}
+
+/* ============================================
+   CONFLICT INDICATORS
+   ============================================ */
+
+/* Show elements with data-solo-conflict */
+.solo-debug-mode [data-solo-conflict] {
+  outline: 3px solid red !important;
+  animation: solo-conflict-flash 0.5s ease-in-out 3;
+}
+
+@keyframes solo-conflict-flash {
+  0%, 100% { outline-color: red; }
+  50% { outline-color: transparent; }
+}
+
+/* ============================================
+   SUBMENU POSITIONING DEBUG
+   ============================================ */
+
+/* Show flipped submenus */
+.solo-debug-mode .submenu-flipped-left > .sub__menu {
+  border-left: 4px solid #FF9800 !important;
+}
+
+.solo-debug-mode .submenu-flipped-right > .sub__menu {
+  border-right: 4px solid #2196F3 !important;
+}
+
+/* Show mega menus */
+.solo-debug-mode .sub-mega,
+.solo-debug-mode .sub__mega {
+  outline: 2px dashed #9C27B0 !important;
+}
+
+/* ============================================
+   MENU DEPTH VISUALIZATION
+   ============================================ */
+
+.solo-debug-mode .ul-1 { border-left: 3px solid #f44336; }
+.solo-debug-mode .ul-2 { border-left: 3px solid #2196F3; }
+.solo-debug-mode .ul-3 { border-left: 3px solid #4CAF50; }
+.solo-debug-mode .ul-4 { border-left: 3px solid #FF9800; }
+
+/* ============================================
+   HOVER STATE DEBUG
+   ============================================ */
+
+.solo-debug-mode .navigation-responsive-hover li:hover::after {
+  content: ' [HOVER]';
+  color: #2196F3;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* ============================================
+   MOBILE NAV DEBUG
+   ============================================ */
+
+.solo-debug-mode .mobile-nav button::before {
+  content: '📱 ';
+}
+
+.solo-debug-mode .mobile-nav button[aria-expanded="true"]::after {
+  content: ' [MENU OPEN]';
+  color: #4CAF50;
+  font-size: 10px;
+}
+
+/* ============================================
+   STATE MANAGER DEBUG
+   ============================================ */
+
+/* Show elements being managed by state manager */
+.solo-debug-mode [data-solo-managed]::after {
+  content: ' [MANAGED]';
+  color: #9C27B0;
+  font-size: 9px;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+/* ============================================
+   PERFORMANCE INDICATORS
+   ============================================ */
+
+/* Show elements with active animations */
+.solo-debug-mode [style*="transition"]::after {
+  content: ' ⚡';
+  color: #FF9800;
+  font-size: 12px;
+}
+
+/* ============================================
+   ACCESSIBILITY WARNINGS
+   ============================================ */
+
+/* Missing aria-labels */
+.solo-debug-mode [role="menubar"]:not([aria-label])::before {
+  content: '⚠️ Missing aria-label';
+  display: block;
+  background: #F44336;
+  color: white;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* Incorrect roles on li elements */
+.solo-debug-mode li[role="menuitem"] {
+  outline: 3px solid red !important;
+}
+
+/* ============================================
+   CONSOLE LINK HELPER
+   ============================================ */
+
+.solo-debug-mode::after {
+  content: 'Open Console → Type: showReport()';
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 999998;
+  background: #333;
+  color: #4CAF50;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: monospace;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  body.solo-debug-mode::before,
+  body.solo-debug-mode::after {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   MOBILE DEBUG ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+  body.solo-debug-mode::before {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+
+  body.solo-debug-mode::after {
+    bottom: auto;
+    top: 50px;
+    font-size: 9px;
+    padding: 4px 8px;
+  }
+}

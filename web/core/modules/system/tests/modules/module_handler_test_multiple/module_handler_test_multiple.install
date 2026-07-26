@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Install functions for the module_handler_test_multiple module.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Extension\ModuleWeight;
+
+/**
+ * Implements hook_install().
+ */
+function module_handler_test_multiple_install(): void {
+  // Set weight of module.
+  \Drupal::service(ModuleWeight::class)->set('module_handler_test_multiple', 1);
+}

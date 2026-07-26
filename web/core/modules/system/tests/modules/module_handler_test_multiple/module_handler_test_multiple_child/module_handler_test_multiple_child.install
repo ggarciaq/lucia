@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Utility functions for the module_handler_test_multiple_child module.
+ *
+ * Install, update and uninstall functions for the
+ * module_handler_test_multiple_child module.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Extension\ModuleWeight;
+
+/**
+ * Implements hook_install().
+ */
+function module_handler_test_multiple_child_install(): void {
+  // Set weight of module.
+  \Drupal::service(ModuleWeight::class)->set('module_handler_test_multiple_child', 1);
+}

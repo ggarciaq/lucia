@@ -1,0 +1,6 @@
+#page-wrapper .kaushan-script,
+#header.solo-kaushan-script .site-name-link,
+#page-wrapper.solo-kaushan-script .page-title-text,
+html.solo-preloader-enabled #solo-preloader.solo-kaushan-script .solo-preloader__text {
+  font-family: "Kaushan Script", cursive;
+}

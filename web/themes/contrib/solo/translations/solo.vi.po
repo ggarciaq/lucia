@@ -1,0 +1,398 @@
+# Vietnamese translation of Solo (all releases)
+# Copyright (c) 2025 by the Vietnamese translation team
+# Generated from files:
+#  solo/templates/block/block--system-branding-block.html.twig: n/a
+#  solo/templates/layout/maintenance-page.html.twig: n/a
+#  solo/solo.info.yml: n/a
+#  solo/solo_subtheme/solo_subtheme.info.yml: n/a
+#  solo/templates/admin/status-report-general-info.html.twig: n/a
+#  solo/partials/_popup-login-block.html.twig: n/a
+#  solo/config/optional/block.block.solo_search.yml: n/a
+#  solo/includes/_theme_settings_helper_functions.inc: n/a
+#  solo/includes/_theme_settings_libraries_fonts.inc: n/a
+#  solo/templates/navigation/book-navigation.html.twig: n/a
+#  solo/templates/navigation/pager.html.twig: n/a
+#  solo/templates/views/views-mini-pager.html.twig: n/a
+#  solo/config/optional/block.block.solo_help.yml: n/a
+#  solo/config/schema/solo.schema.yml: n/a
+#  solo/solo_subtheme/config/schema/solo_subtheme.schema.yml: n/a
+#  solo/templates/content/mark.html.twig: n/a
+#  solo/includes/_theme_settings_search_results.inc: n/a
+#  solo/includes/_theme_settings_sm_icons.inc: n/a
+#  solo/includes/_theme_settings_layout_popup_login_block.inc: n/a
+#  solo/includes/_theme_settings_predefined_themes.inc: n/a
+#  solo/templates/dataset/forum-list.html.twig: n/a
+#  solo/config/optional/block.block.solo_page_title.yml: n/a
+#  solo/templates/navigation/breadcrumb.html.twig: n/a
+#  solo/partials/_breadcrumb.html.twig: n/a
+#  solo/includes/_theme_settings_global_misc.inc: n/a
+#  solo/templates/content/node.html.twig: n/a
+#  solo/config/optional/block.block.solo_userlogin.yml: n/a
+#  solo/includes/_solo_theme_preprocess.inc: n/a
+#  solo/templates/admin/status-report-counter.html.twig: n/a
+#  solo/partials/_fixed-search-block.html.twig: n/a
+#  solo/partials/_primary-sidebar-menu.html.twig: n/a
+#  solo/includes/_solo_theme_alter.inc: n/a
+#  solo/config/optional/block.block.solo_local_tasks.yml: n/a
+#  solo/templates/block/block--local-tasks-block.html.twig: n/a
+#  solo/templates/form/select--multi--dropdown.html.twig: n/a
+#  solo/templates/form/select--multi--dual-list.html.twig: n/a
+#  solo/templates/form/select--multi--searchable.html.twig: n/a
+#  solo/templates/form/select--multi--tags.html.twig: n/a
+#  solo/templates/layout/html.html.twig: n/a
+#  solo/includes/_theme_settings_layout_footer_menu.inc: n/a
+#  solo/includes/_theme_settings_layout_header.inc: n/a
+#  solo/includes/_theme_settings_layout_main.inc: n/a
+#  solo/includes/_theme_settings_layout_primary_menu.inc: n/a
+#  solo/templates/navigation/menu-local-tasks.html.twig: n/a
+#  solo/config/optional/block.block.solo_searchform.yml: n/a
+#  solo/config/optional/block.block.solo_powered.yml: n/a
+#  solo/partials/_main-regions.html.twig: n/a
+#  solo/config/optional/block.block.solo_content.yml: n/a
+#  solo/templates/content-edit/filter-tips.html.twig: n/a
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Solo (all releases)\n"
+"POT-Creation-Date: 2025-10-09 16:29+0700\n"
+"PO-Revision-Date: 2025-10-09 17:03+0700\n"
+"Last-Translator: \n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.6\n"
+
+#: templates/block/block--system-branding-block.html.twig:23,24,29,40;
+#: templates/layout/maintenance-page.html.twig:17,18,26
+msgid "Home"
+msgstr "Trang chủ"
+
+#: solo.info.yml:0; solo_subtheme/solo_subtheme.info.yml:0
+msgid "Content"
+msgstr "Nội dung"
+
+#: templates/admin/status-report-general-info.html.twig:72,87
+msgid "Version"
+msgstr "Phiên bản"
+
+#: partials/_popup-login-block.html.twig:3
+msgid "Login"
+msgstr "Đăng nhập"
+
+#: config/optional/block.block.solo_search.yml:0
+msgid "Search"
+msgstr "Tìm kiếm"
+
+#: includes/_theme_settings_helper_functions.inc:161,254,313,348,453,189,282,341,376,410,515,526,65,190,283,342,377,411,527,33,97,222,315,374,409,443,559,35,99,224,317,412,446,562,102,229,322,382,417,451,567,230,323,383,418,452,579,100,228,321,381,416,450,577;
+#: includes/_theme_settings_libraries_fonts.inc:98,121
+msgid "None"
+msgstr "Không có"
+
+#: includes/_theme_settings_helper_functions.inc:152,150
+msgid "- None -"
+msgstr "- Không -"
+
+#: templates/navigation/book-navigation.html.twig:40;
+#: templates/navigation/pager.html.twig:49;
+#: templates/views/views-mini-pager.html.twig:19
+msgid "Go to previous page"
+msgstr "Đi tới trang trước"
+
+#: templates/navigation/book-navigation.html.twig:45
+msgid "Go to parent page"
+msgstr "Đi tới trang cha"
+
+#: templates/navigation/book-navigation.html.twig:50;
+#: templates/navigation/pager.html.twig:82;
+#: templates/views/views-mini-pager.html.twig:34
+msgid "Go to next page"
+msgstr "Đi tới trang tiếp"
+
+#: config/optional/block.block.solo_help.yml:0
+msgid "Help"
+msgstr "Trợ giúp"
+
+#: config/schema/solo.schema.yml:0;
+#: solo_subtheme/config/schema/solo_subtheme.schema.yml:0
+msgid "Core"
+msgstr "Mã"
+
+#: templates/content/mark.html.twig:18
+msgid "Updated"
+msgstr "Đã cập nhật"
+
+#: includes/_theme_settings_search_results.inc:70
+msgid "Content Types"
+msgstr "Các loại nội dung"
+
+#: includes/_theme_settings_sm_icons.inc:66,71,72,73,74,98;
+#: config/schema/solo.schema.yml:0;
+#: solo_subtheme/config/schema/solo_subtheme.schema.yml:0
+msgid "Email"
+msgstr "Email"
+
+#: includes/_theme_settings_layout_popup_login_block.inc:65;
+#: includes/_theme_settings_predefined_themes.inc:62
+msgid "Advanced Settings"
+msgstr "Thiết lập nâng cao"
+
+#: templates/dataset/forum-list.html.twig:42
+msgid "Last post"
+msgstr "Bài gửi cuối"
+
+#: config/optional/block.block.solo_page_title.yml:0
+msgid "Page title"
+msgstr "Tiêu đề trang"
+
+#: templates/navigation/pager.html.twig:69
+msgid "Page"
+msgstr "Trang"
+
+#: includes/_theme_settings_sm_icons.inc:65,70,71,72,73,97
+msgid "RSS"
+msgstr "RSS"
+
+#: solo.info.yml:0; solo_subtheme/solo_subtheme.info.yml:0;
+#: templates/navigation/breadcrumb.html.twig:12,13;
+#: partials/_breadcrumb.html.twig:3
+msgid "Breadcrumb"
+msgstr "Đường dẫn điều hướng"
+
+#: config/schema/solo.schema.yml:0;
+#: solo_subtheme/config/schema/solo_subtheme.schema.yml:0
+msgid "Logo"
+msgstr "Logo"
+
+#: config/schema/solo.schema.yml:0;
+#: solo_subtheme/config/schema/solo_subtheme.schema.yml:0
+msgid "Site name"
+msgstr "Tên trang web"
+
+#: templates/admin/status-report-general-info.html.twig:86
+msgid "Database"
+msgstr "Cơ sở dữ liệu"
+
+#: includes/_theme_settings_sm_icons.inc:64,69,70,71,72,96;
+#: config/schema/solo.schema.yml:0;
+#: solo_subtheme/config/schema/solo_subtheme.schema.yml:0
+msgid "Drupal"
+msgstr "Drupal"
+
+#: templates/admin/status-report-general-info.html.twig:71
+msgid "PHP"
+msgstr "PHP"
+
+#: solo.info.yml:0; solo_subtheme/solo_subtheme.info.yml:0
+msgid "Header"
+msgstr "Tiêu đề"
+
+#: includes/_theme_settings_global_misc.inc:296
+msgid "Normal"
+msgstr "Bình thường"
+
+#: templates/navigation/book-navigation.html.twig:45
+msgid "Up"
+msgstr "Lên"
+
+#: templates/admin/status-report-general-info.html.twig:92
+msgid "System"
+msgstr "Hệ thống"
+
+#: templates/content/node.html.twig:103,101
+msgid "By"
+msgstr "Bởi"
+
+#: templates/dataset/forum-list.html.twig:39
+msgid "Forum"
+msgstr "Diễn đàn"
+
+#: includes/_theme_settings_sm_icons.inc:34
+msgid "General Settings"
+msgstr "Thiết lập chung"
+
+#: config/schema/solo.schema.yml:0;
+#: solo_subtheme/config/schema/solo_subtheme.schema.yml:0
+msgid "Background color"
+msgstr "Màu nền"
+
+#: config/schema/solo.schema.yml:0;
+#: solo_subtheme/config/schema/solo_subtheme.schema.yml:0
+msgid "Text color"
+msgstr "Màu chữ"
+
+#: config/optional/block.block.solo_userlogin.yml:0
+msgid "User login"
+msgstr "Đăng nhập người dùng"
+
+#: includes/_solo_theme_preprocess.inc:400
+msgid "Link text"
+msgstr "Văn bản dùng làm liên kết"
+
+#: templates/admin/status-report-counter.html.twig:23
+msgid "text"
+msgstr "văn bản"
+
+#: partials/_fixed-search-block.html.twig:7;
+#: partials/_primary-sidebar-menu.html.twig:8
+msgid "Close"
+msgstr "Đóng"
+
+#: solo.info.yml:0; solo_subtheme/solo_subtheme.info.yml:0
+msgid "Page Title"
+msgstr "Tên trang"
+
+#: includes/_theme_settings_layout_popup_login_block.inc:92
+msgid "ms"
+msgstr "mili-giây"
+
+#: includes/_solo_theme_preprocess.inc:586,591,600,677,702,708,712,723,772,767,768,796,807,946,974,969,971,991,999,1065,1118
+msgid "@time ago"
+msgstr "cách đây @time"
+
+#: config/schema/solo.schema.yml:0;
+#: solo_subtheme/config/schema/solo_subtheme.schema.yml:0
+msgid "Features"
+msgstr "Tính năng"
+
+#: templates/dataset/forum-list.html.twig:40
+msgid "Topics"
+msgstr "Chủ đề"
+
+#: templates/dataset/forum-list.html.twig:41
+msgid "Posts"
+msgstr "Số bài gửi"
+
+#: includes/_solo_theme_alter.inc:85,64,102
+msgid "Post comment"
+msgstr "Gửi bình luận"
+
+#: includes/_theme_settings_global_misc.inc:297
+msgid "Slow"
+msgstr "Chậm"
+
+#: includes/_theme_settings_global_misc.inc:295
+msgid "Fast"
+msgstr "Nhanh"
+
+#: config/schema/solo.schema.yml:0;
+#: solo_subtheme/config/schema/solo_subtheme.schema.yml:0
+msgid "Link color"
+msgstr "Màu liên kết"
+
+#: templates/content/mark.html.twig:16
+msgid "New"
+msgstr "Mới"
+
+#: config/optional/block.block.solo_local_tasks.yml:0;
+#: templates/block/block--local-tasks-block.html.twig:10
+msgid "Tabs"
+msgstr "Các tab"
+
+#: config/schema/solo.schema.yml:0;
+#: solo_subtheme/config/schema/solo_subtheme.schema.yml:0
+msgid "Slogan"
+msgstr "Khẩu hiệu"
+
+#: templates/navigation/pager.html.twig:40
+msgid "Go to first page"
+msgstr "Đi tới trang đầu tiên"
+
+#: templates/navigation/pager.html.twig:91
+msgid "Go to last page"
+msgstr "Đi tới trang cuối cùng"
+
+#: templates/form/select--multi--dropdown.html.twig:48;
+#: templates/form/select--multi--dual-list.html.twig:56;
+#: templates/form/select--multi--searchable.html.twig:55;
+#: templates/form/select--multi--tags.html.twig:49
+msgid "Clear All"
+msgstr "Xoá tất cả"
+
+#: includes/_theme_settings_helper_functions.inc:173,201,202,234,236,241,242,240
+msgid "Miscellaneous"
+msgstr "Linh tinh"
+
+#: templates/layout/html.html.twig:47,53
+msgid "Skip to main content"
+msgstr "Chuyển đến nội dung chính"
+
+#: includes/_theme_settings_layout_footer_menu.inc:47;
+#: includes/_theme_settings_layout_header.inc:117;
+#: includes/_theme_settings_layout_main.inc:103;
+#: includes/_theme_settings_layout_primary_menu.inc:171
+msgid "Accessibility"
+msgstr "Hỗ trợ tiếp cận"
+
+#: config/schema/solo.schema.yml:0;
+#: solo_subtheme/config/schema/solo_subtheme.schema.yml:0
+msgid "Use default"
+msgstr "Sử dụng mặc định"
+
+#: templates/navigation/menu-local-tasks.html.twig:15
+msgid "Primary tabs"
+msgstr "Tab chính"
+
+#: templates/navigation/menu-local-tasks.html.twig:19
+msgid "Secondary tabs"
+msgstr "Tab phụ"
+
+#: includes/_solo_theme_alter.inc:85,64,102
+msgid "Reply to comment"
+msgstr "Phản hồi về bài bình luận"
+
+#: templates/views/views-mini-pager.html.twig:21
+msgid "‹‹"
+msgstr "‹‹"
+
+#: templates/views/views-mini-pager.html.twig:36
+msgid "››"
+msgstr "››"
+
+#: config/optional/block.block.solo_searchform.yml:0;
+#: partials/_fixed-search-block.html.twig:6
+msgid "Search form"
+msgstr "Biểu mẫu tìm kiếm"
+
+#: config/optional/block.block.solo_powered.yml:0
+msgid "Powered by Drupal"
+msgstr "Sử dụng Drupal"
+
+#: partials/_main-regions.html.twig:47
+msgid "Sidebar First"
+msgstr "Thanh bên đầu tiên"
+
+#: includes/_theme_settings_helper_functions.inc:25,41,57,43,59
+msgid "100%"
+msgstr "100%"
+
+#: config/optional/block.block.solo_content.yml:0
+msgid "Main page content"
+msgstr "Nội dung chính của trang"
+
+#: templates/navigation/pager.html.twig:63,69
+msgid "Current page"
+msgstr "Trang hiện tại"
+
+#: solo.info.yml:0; solo_subtheme/solo_subtheme.info.yml:0
+msgid "Highlighted"
+msgstr "Nổi bật"
+
+#: templates/navigation/pager.html.twig:50;
+#: templates/views/views-mini-pager.html.twig:20
+msgid "Previous page"
+msgstr "Trang trước"
+
+#: templates/content-edit/filter-tips.html.twig:20
+msgid "Text Formats"
+msgstr "Các định dạng văn bản"
+
+#: partials/_main-regions.html.twig:68,70
+msgid "Sidebar Second"
+msgstr "Thanh bên thứ hai"
+
+#: includes/_solo_theme_preprocess.inc:754,777,786,881,906,912,916,930,998,993,994,1020,1031,1173,1201,1196,1198,1222,1233,1232,1298,1359
+msgid "Loading…"
+msgstr "Đang tải…"
