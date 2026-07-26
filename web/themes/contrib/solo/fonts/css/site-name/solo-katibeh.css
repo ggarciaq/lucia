@@ -1,0 +1,6 @@
+#page-wrapper .katibeh,
+#header.solo-katibeh .site-name-link,
+#page-wrapper.solo-katibeh .page-title-text,
+html.solo-preloader-enabled #solo-preloader.solo-katibeh .solo-preloader__text {
+  font-family: "Katibeh", serif;
+}

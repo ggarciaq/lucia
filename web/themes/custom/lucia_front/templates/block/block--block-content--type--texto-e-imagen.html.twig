@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Bloque "Texto e imagen": texto e imagen en dos columnas.
+ *
+ * Las variables `img_url`, `img_alt` y `posicion_imagen` se calculan en
+ * lucia_front_preprocess_block__block_content__type__texto_e_imagen()
+ * dentro de lucia_front.theme.
+ *
+ * `posicion_imagen` puede ser 'derecha', 'izquierda' o 'centrada' (valor del
+ * campo field_posicion_imagen) y controla la disposición del bloque mediante
+ * la clase modificadora `texto-imagen-block--imagen-{{ posicion_imagen }}`.
+ * Con 'centrada', el texto se muestra arriba y la imagen debajo, centrada.
+ */
+#}
+<section{{ attributes.addClass('texto-imagen-block', 'texto-imagen-block--imagen-' ~ posicion_imagen) }}>
+  <div class="texto-imagen-block__text">
+    {{ content.field_descripcion }}
+  </div>
+  <div class="texto-imagen-block__image">
+    {% if img_url %}
+      <img src="{{ img_url }}" alt="{{ img_alt }}" loading="lazy" />
+    {% endif %}
+  </div>
+</section>

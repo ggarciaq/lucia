@@ -1,0 +1,7 @@
+lucia-front-global:
+  css:
+    theme:
+      css/lucia-front-style.css: {}
+
+  js:
+    js/lucia-front-script.js: {}

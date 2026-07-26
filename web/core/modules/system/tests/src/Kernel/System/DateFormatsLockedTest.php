@@ -1,0 +1,65 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Drupal\Tests\system\Kernel\System;
+
+use Drupal\KernelTests\KernelTestBase;
+use Drupal\Tests\user\Traits\UserCreationTrait;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+
+/**
+ * Tests the locked functionality of date formats.
+ */
+#[Group('system')]
+#[RunTestsInSeparateProcesses]
+class DateFormatsLockedTest extends KernelTestBase {
+
+  use UserCreationTrait {
+    createUser as drupalCreateUser;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected static $modules = ['system', 'user'];
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function setUp(): void {
+    parent::setUp();
+    $this->installEntitySchema('user');
+    $this->installConfig(['system']);
+  }
+
+  /**
+   * Tests attempts at listing, editing, and deleting locked date formats.
+   */
+  public function testDateLocking(): void {
+    $this->setCurrentUser($this->drupalCreateUser(['administer site configuration']));
+
+    // Locked date formats are not linked on the listing page, locked date
+    // formats are clearly marked as such; unlocked formats are not marked as
+    // "locked".
+    $this->drupalGet('admin/config/regional/date-time');
+    $this->assertSession()->linkByHrefExists('admin/config/regional/date-time/formats/manage/short');
+    $this->assertSession()->linkByHrefNotExists('admin/config/regional/date-time/formats/manage/html_date');
+    $this->assertSession()->pageTextContains('Fallback date format');
+    $this->assertSession()->pageTextNotContains('short (locked)');
+
+    // Locked date formats are not editable.
+    $this->drupalGet('admin/config/regional/date-time/formats/manage/short');
+    $this->assertSession()->statusCodeEquals(200);
+    $this->drupalGet('admin/config/regional/date-time/formats/manage/html_date');
+    $this->assertSession()->statusCodeEquals(403);
+
+    // Locked date formats are not deletable.
+    $this->drupalGet('admin/config/regional/date-time/formats/manage/short/delete');
+    $this->assertSession()->statusCodeEquals(200);
+    $this->drupalGet('admin/config/regional/date-time/formats/manage/html_date/delete');
+    $this->assertSession()->statusCodeEquals(403);
+  }
+
+}

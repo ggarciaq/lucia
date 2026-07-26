@@ -1,0 +1,6 @@
+#page-wrapper .fugaz-one,
+#header.solo-fugaz-one .site-name-link,
+#page-wrapper.solo-fugaz-one .page-title-text,
+html.solo-preloader-enabled #solo-preloader.solo-fugaz-one .solo-preloader__text {
+  font-family: "Fugaz One", sans-serif;
+}

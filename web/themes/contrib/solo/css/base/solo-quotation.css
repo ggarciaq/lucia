@@ -1,0 +1,15 @@
+blockquote {
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+  border: none;
+  margin-block: var(--solo-px24);
+  padding-block: var(--solo-px16);
+  padding-inline-start: var(--solo-px24);
+  padding-inline-end: var(--solo-px16);
+  border-inline-start: 4px solid var(--r-br, var(--r-br-b));
+}
+
+blockquote p:last-child {
+  margin-block-end: 0;
+}

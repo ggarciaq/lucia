@@ -1,0 +1,81 @@
+<?php
+
+use Drupal\image\Entity\ImageStyle;
+
+/**
+ * @file
+ * Add your custom theme override functions here.
+ */
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function lucia_front_theme_suggestions_block_alter(&$suggestions, $variables) {
+
+  // Load theme suggestions for blocks from parent theme.
+  foreach ($suggestions as &$suggestion) {
+    $suggestion = str_replace('solo_', 'lucia_front_', $suggestion);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block--block-content--type--banner.
+ *
+ * Calculates the "hero_banner" image style URL for the banner background
+ * image, since Twig cannot call ImageStyle::buildUrl() directly.
+ */
+function lucia_front_preprocess_block__block_content__type__banner(&$variables) {
+  $variables['bg_url'] = NULL;
+
+  $media = $variables['content']['field_imagen'][0]['#media'] ?? NULL;
+  if (!$media || !$media->hasField('field_media_image')) {
+    return;
+  }
+
+  $file = $media->get('field_media_image')->entity;
+  if (!$file) {
+    return;
+  }
+
+  $style = ImageStyle::load('hero_banner');
+  if ($style) {
+    $variables['bg_url'] = $style->buildUrl($file->getFileUri());
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block--block-content--type--texto-e-imagen.
+ *
+ * Calculates the "texto_imagen_lateral" image style URL for the side image,
+ * since Twig cannot call ImageStyle::buildUrl() directly. Also exposes the
+ * value of "field_posicion_imagen" (derecha|izquierda) so the template can
+ * render the image on the correct side.
+ */
+function lucia_front_preprocess_block__block_content__type__texto_e_imagen(&$variables) {
+  $variables['img_url'] = NULL;
+  $variables['img_alt'] = NULL;
+  $variables['posicion_imagen'] = 'derecha';
+
+  $block_content = $variables['elements']['content']['#block_content'] ?? NULL;
+  if ($block_content && $block_content->hasField('field_posicion_imagen') && !$block_content->get('field_posicion_imagen')->isEmpty()) {
+    $variables['posicion_imagen'] = $block_content->get('field_posicion_imagen')->value;
+  }
+
+  $media = $variables['content']['field_imagen'][0]['#media'] ?? NULL;
+  if (!$media || !$media->hasField('field_media_image')) {
+    return;
+  }
+
+  $image_item = $media->get('field_media_image');
+  $file = $image_item->entity;
+  if (!$file) {
+    return;
+  }
+
+  $variables['img_alt'] = $image_item->alt ?? '';
+
+  $style = ImageStyle::load('texto_imagen_lateral');
+  if ($style) {
+    $variables['img_url'] = $style->buildUrl($file->getFileUri());
+  }
+}

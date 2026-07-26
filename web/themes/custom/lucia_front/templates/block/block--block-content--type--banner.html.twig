@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Plantilla del bloque "banner" (hero) con imagen de fondo.
+ *
+ * La variable `bg_url` se calcula en lucia_front_preprocess_block__block_content__type__banner()
+ * dentro de lucia_front.theme, usando el image style "hero_banner".
+ */
+#}
+
+<section{{ attributes.addClass('hero-banner') }}{% if bg_url %} style="background-image: url('{{ bg_url }}');"{% endif %}>
+  <div class="hero-banner__overlay">
+    <div class="hero-banner__content">
+      {{ content.field_titulo }}
+      {{ content.field_frase }}
+    </div>
+  </div>
+</section>

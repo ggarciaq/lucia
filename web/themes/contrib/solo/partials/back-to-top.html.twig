@@ -1,0 +1,22 @@
+{#
+  Back to top: sentinel + button. Position, style, icon from config.
+  Inline style sets only CSS variables (--solo-back-to-top-sentinel-height, --r-bg, --r-tx); layout/visuals in CSS.
+  Overridable via back-to-top.html.twig.
+#}
+<div class="solo-back-to-top-sentinel-wrapper" style="--solo-back-to-top-sentinel-height: {{ back_to_top_config.scroll_threshold|default(400) }}px">
+  <div id="solo-back-to-top-sentinel" aria-hidden="true" class="solo-back-to-top-sentinel"></div>
+</div>
+<button type="button"
+  id="solo-back-to-top"
+  class="solo-back-to-top solo-back-to-top--{{ (back_to_top_config.position|default('bottom-right'))|clean_class }} solo-back-to-top--{{ (back_to_top_config.style|default('solid'))|clean_class }}{% if back_to_top_config.hide_small_screens %} solo-back-to-top--hide-small{% endif %}"
+  aria-label="{{ 'Back to top'|t }}"
+  aria-hidden="true"
+  {% if back_to_top_inline_style is not empty %}style="{{ back_to_top_inline_style }}"{% endif %}>
+  {% if (back_to_top_config.icon|default('arrow-up')) == 'chevron-up' %}
+    <svg class="solo-back-to-top__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  {% elseif (back_to_top_config.icon|default('arrow-up')) == 'arrow-minimal' %}
+    <svg class="solo-back-to-top__icon solo-back-to-top__icon--minimal" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 8l-6 6h4v2h4v-2h4L12 8z" fill="currentColor"/></svg>
+  {% else %}
+    <svg class="solo-back-to-top__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="currentColor"/></svg>
+  {% endif %}
+</button>

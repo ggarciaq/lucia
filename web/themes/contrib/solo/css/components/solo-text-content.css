@@ -1,0 +1,52 @@
+/**
+ * @file
+ * SOLO Text Content Layer
+ * Region-variable driven, no static colors.
+ *
+ * Contrib-safe anchors:
+ * - Core text fields
+ * - CKEditor output
+ */
+
+/* -------------------------------------------------
+   Inline code
+-------------------------------------------------- */
+
+.field--type-text-long code,
+.field--type-text-with-summary code,
+.cke_editable code,
+.ck-content code {
+  background-color: var(--solo-odd-light, var(--r-bg));
+  color: var(--r-tx);
+  border: 1px solid var(--r-br, var(--r-br-b));
+}
+
+/* -------------------------------------------------
+   Preformatted code blocks
+-------------------------------------------------- */
+
+.field--type-text-long pre,
+.field--type-text-with-summary pre,
+.cke_editable pre,
+.ck-content pre {
+  max-inline-size: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: pre;
+  background-color: var(--r-bg);
+  border: 1px solid var(--r-br, var(--r-br-b));
+  color: var(--r-tx);
+  -webkit-overflow-scrolling: touch;
+}
+
+.field--type-text-long pre code,
+.field--type-text-with-summary  pre code,
+.cke_editable pre code,
+.ck-content pre code {
+  display: inline-block;
+  min-inline-size: 100%;
+  white-space: pre;
+  overflow-x: auto;
+  padding: var(--solo-px16);
+  background-color: transparent;
+}

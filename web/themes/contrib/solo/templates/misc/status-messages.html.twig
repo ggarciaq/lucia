@@ -1,0 +1,106 @@
+{#
+/**
+ * @file
+ * Theme override for status messages.
+ *
+ * Displays status, error, and warning messages, grouped by type.
+ *
+ * An invisible heading identifies the messages for assistive technology.
+ * Sighted users see a colored box. See
+ * https://www.w3.org/TR/WCAG-TECHS/H69.html for info.
+ *
+ * Add an ARIA label to the contentinfo area so that assistive technology
+ * user agents will better describe this landmark.
+ *
+ * Available variables:
+ * - message_list: List of messages to be displayed, grouped by type.
+ * - status_headings: List of all status types.
+ * - attributes: HTML attributes for the element, including:
+ *   - class: HTML classes.
+ */
+#}
+{#
+/**
+ * @file
+ * Theme override for status messages with ARIA live regions.
+ *
+ * Displays status, error, and warning messages, grouped by type.
+ *
+ * Available variables:
+ * - message_list: List of messages to be displayed, grouped by type.
+ * - status_headings: List of all status types.
+ * - attributes: HTML attributes for the element, including:
+ *   - class: HTML classes.
+ */
+#}
+<div data-drupal-messages class="messages-list">
+  <div class="messages__wrapper layout-container">
+    {% for type, messages in message_list %}
+      {%
+        set classes = [
+          'solo-clear',
+          'messages-list__item',
+          'messages',
+          'messages--' ~ type,
+        ]
+      %}
+      {#
+        Configure ARIA live region attributes based on message type.
+        - Errors/warnings: assertive (interrupts immediately)
+        - Status/info: polite (waits for natural pause)
+        - All types: atomic=true (announces complete message)
+      #}
+      {% set is_critical = type in ['error', 'warning'] %}
+      {% set role = is_critical ? 'alert' : 'status' %}
+      {% set aria_live = is_critical ? 'assertive' : 'polite' %}
+      {% set heading_id = 'msg-heading-' ~ type ~ '-' ~ loop.index %}
+
+      {# Create fresh attributes object to avoid cross-iteration bleed. #}
+      {% set msg_attributes = create_attribute()
+        .addClass(classes)
+        .setAttribute('data-drupal-selector', 'messages')
+        .setAttribute('role', role)
+        .setAttribute('aria-live', aria_live)
+        .setAttribute('aria-atomic', 'true')
+        .setAttribute('aria-relevant', 'additions text')
+      %}
+
+      {# Add aria-labelledby if heading exists - MUST be before rendering div. #}
+      {% if status_headings[type] %}
+        {% set msg_attributes = msg_attributes.setAttribute('aria-labelledby', heading_id) %}
+      {% endif %}
+
+      <div{{ msg_attributes }}>
+        <div class="messages__container" data-drupal-selector="messages-container">
+          {% if status_headings[type] %}
+            <div class="messages__header">
+              <h2 class="visually-hidden" id="{{ heading_id }}">{{ status_headings[type] }}</h2>
+              <div class="messages__icon">
+                {% if type == 'error' %}
+                  {% include "@solo/../images/icons/message-error.svg" %}
+                {% elseif type == 'warning' %}
+                  {% include "@solo/../images/icons/message-warning.svg" %}
+                {% elseif type == 'status' %}
+                  {% include "@solo/../images/icons/message-status.svg" %}
+                {% elseif type == 'info' %}
+                  {% include "@solo/../images/icons/message-info.svg" %}
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+          <div class="messages__content">
+            {% if messages|length > 1 %}
+              <ul class="messages__list">
+                {% for message in messages %}
+                  <li class="messages__item">{{ message }}</li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              {{ messages|first }}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

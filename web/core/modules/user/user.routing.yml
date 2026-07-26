@@ -1,0 +1,71 @@
+user.register:
+  path: '/user/register'
+  defaults:
+    _entity_form: 'user.register'
+    _title: 'Create new account'
+  requirements:
+    _access_user_register: 'TRUE'
+
+user.admin_index:
+  path: '/admin/config/people'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'People'
+  requirements:
+    _permission: 'access administration pages'
+
+entity.user.admin_form:
+  path: '/admin/config/people/accounts'
+  defaults:
+    _form: '\Drupal\user\AccountSettingsForm'
+    _title: 'Account settings'
+  requirements:
+    _permission: 'administer account settings'
+
+entity.user.collection:
+  path: '/admin/people'
+  defaults:
+    _entity_list: 'user'
+    _title: 'People'
+  requirements:
+    _permission: 'administer users'
+
+user.admin_create:
+  path: '/admin/people/create'
+  defaults:
+    _entity_form: 'user.register'
+    _title: 'Add user'
+  requirements:
+    _entity_create_access: 'user'
+
+entity.user_role.collection:
+  path: '/admin/people/roles'
+  defaults:
+    _entity_list: 'user_role'
+    _title: 'Roles'
+  requirements:
+    _permission: 'administer permissions'
+
+user.role_add:
+  path: '/admin/people/roles/add'
+  defaults:
+    _entity_form: user_role.default
+    _title: 'Add role'
+  requirements:
+    _permission: 'administer permissions'
+
+entity.user_role.edit_form:
+  path: '/admin/people/roles/manage/{user_role}'
+  defaults:
+    _entity_form: user_role.default
+    _title: 'Edit role'
+  requirements:
+    _entity_access: user_role.update
+
+entity.user_role.delete_form:
+  path: '/admin/people/roles/manage/{user_role}/delete'
+  defaults:
+    _entity_form: user_role.delete
+    _title: 'Delete role'
+  requirements:
+    _entity_access: user_role.delete

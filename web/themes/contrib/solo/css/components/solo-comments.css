@@ -1,0 +1,442 @@
+/**
+ * @file
+ * Comment layout styles for Solo theme.
+ * Clean stacked design with no background colors.
+ * Supports accessible heading-first display order.
+ */
+
+/* Comment wrapper */
+.comment-wrapper {
+  display: grid;
+  margin-block: var(--solo-px24);
+}
+
+.comment-wrapper > * {
+  min-width: 0;
+}
+
+.comment-wrapper .indented {
+  margin-inline-start: clamp(12px, 2vw, 28px);
+  padding-inline-start: clamp(12px, 2vw, 20px);
+  display: grid;
+}
+
+.comment-wrapper .comment {
+  border-block-start: 1px solid var(--r-br);
+}
+
+.comment-wrapper .indented .comment {
+  border-block-start: 1px dashed var(--r-br);
+}
+
+.comment-wrapper .add-comment + .comment {
+  border-block-start: 0!important;
+}
+
+.comment-wrapper h2.comment-form__title {
+  margin-block-end: var(--solo-px24);
+}
+
+.field-node--comment {
+  font-size: var(--solo-px14);
+}
+
+.comments__title,
+.comments__title .comments__icon {
+  display: inline-flex;
+  justify-content: start;
+  align-items: center;
+  gap: var(--solo-px4);
+}
+
+/* Individual comment - stacked layout */
+.comment {
+  margin-block-end: var(--solo-px24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--solo-px16);
+}
+
+[dir="rtl"] .comment {
+  direction: rtl;
+}
+
+[dir="rtl"] .comment__header {
+  direction: rtl;
+}
+
+.user-profile-compact a {
+  display: flex;
+}
+
+/* Heading-first modifier - title appears before header */
+.comment--heading-first .comment__body {
+  order: -1;
+  margin-block-end: var(--solo-px8);
+}
+
+.comment--heading-first .comment__title {
+  margin: 0;
+}
+
+/* Comment Header - picture, author, time in one row */
+.comment__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--solo-px12);
+  position: relative;
+}
+
+.comment__header p,
+.comment__header time {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.comment__picture {
+  flex-shrink: 0;
+  width: var(--solo-px48);
+  height: var(--solo-px48);
+}
+
+.comment__picture img {
+  border-radius: 50%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.comment__header-info {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.comment__author {
+  margin: 0 0 var(--solo-px4);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.comment__author a {
+  text-decoration: none;
+}
+
+.comment__author a:hover,
+.comment__author a:focus {
+  color: var(--r-lk-h);
+  text-decoration: underline;
+}
+
+.comment__time {
+  display: block;
+  margin: 0;
+  font-size: var(--solo-px13);
+  opacity: 0.7;
+}
+
+/* Permalink icon */
+.comment__permalink {
+  width: var(--solo-px48);
+  height: var(--solo-px48);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+
+.comment:hover .comment__permalink,
+.comment:focus-within .comment__permalink {
+  opacity: 1;
+}
+
+.comment__permalink a {
+  top: 0;
+  inset-inline-end: 0;
+  position: absolute;
+  background-color: transparent !important;
+  font-size: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.comment__permalink a:hover,
+.comment__permalink a:focus {
+  opacity: 1;
+  background-color: var(--r-bg-lk-h);
+}
+
+.comment__permalink svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--r-tx);
+}
+
+/* New comment indicator - semantic mark element */
+.page-wrapper .new-comment {
+  position: absolute;
+  top: 0;
+  inset-inline-end: var(--solo-px48);
+  width: var(--solo-px48);
+  height: var(--solo-px48);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--solo-px4);
+  padding: var(--solo-px4) var(--solo-px8);
+  color: #10b981;
+  background-color:transparent;
+  font-size: var(--solo-px12);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  border-radius: 0;
+}
+
+/* Dot indicator before text */
+.new-comment__dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Text wrapper */
+.new-comment__text {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Hide when Drupal's JS adds hidden class after viewing */
+.new-comment.hidden {
+  display: none !important;
+}
+
+/* Comment Body - no left padding, stacked below header */
+.comment__body {
+  margin: 0;
+}
+
+/* Comment content wrapper (used in heading-first mode) */
+.comment__content {
+  margin: 0;
+}
+
+.comment__content .field {
+  margin: 0;
+}
+
+.comment__title {
+  margin: 0 0 var(--solo-px12);
+}
+
+.comment__title a {
+  text-decoration: none;
+}
+
+.comment__title a:hover,
+.comment__title a:focus {
+  color: var(--r-lk-h);
+  text-decoration: underline;
+}
+
+.comment__body .field {
+  margin: 0;
+}
+
+.comment__body p:last-child {
+  margin-block-end: 0;
+}
+
+/* Comment Footer - stacked below body */
+.comment__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--solo-px16);
+  flex-wrap: wrap;
+  padding-block-start: var(--solo-px12);
+}
+
+.comment__links {
+  display: flex;
+  gap: var(--solo-px8);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.comment__links ul {
+  display: flex;
+  gap: var(--solo-px8);
+  margin: 0;
+  padding: 0;
+  justify-content: start;
+  list-style: none;
+}
+
+.comment__links li {
+  padding: var(--solo-px8);
+  margin: 0;
+}
+
+.comment__links ul.links li:first-child {
+  margin-inline-start: 0;
+  padding-inline-start: 0;
+}
+
+.comment__links a {
+  display: inline-block;
+  padding: var(--solo-px6) var(--solo-px12);
+  font-size: var(--solo-px13);
+  text-decoration: none;
+  border-radius: var(--solo-px4);
+  border: 1px solid var(--r-br);
+  transition: all 0.2s ease;
+}
+
+button.comment__replies-toggle:hover,
+button.comment__replies-toggle:focus,
+.comment__links a:hover,
+.comment__links a:focus {
+  color: var(--r-lk-h);
+  background-color: var(--r-bg-lk-h);
+}
+
+button.comment__replies-toggle:hover,
+.comment__links ul.links li a:hover {
+  transform: translateY(2px);
+  border-color: var(--r-tx);
+}
+
+/* Replies toggle button */
+.comment__replies-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+button.comment__replies-toggle {
+  transition: all 0.2s ease;
+  line-height: 1;
+  border-radius: var(--solo-px4);
+  border: 1px solid var(--r-br);
+  cursor: pointer;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--solo-px8);
+}
+
+.comment__replies-toggle .comment__replies-text {
+  font-size: var(--solo-px13);
+}
+
+.comment__replies-toggle svg {
+  fill: var(--r-tx);
+}
+
+.comment__replies-toggle:hover,
+.comment__replies-toggle:focus {
+  background-color: var(--r-bg-lk-h);
+  border-color: var(--r-lk);
+}
+
+.comment__replies-toggle:active {
+  transform: scale(0.98);
+}
+
+.comment__replies-icon {
+  display: inline-flex;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  transition: all 0.3s ease;
+}
+
+.comment__replies-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Toggle icon visibility */
+.comment__replies-toggle[aria-expanded="true"] .comment__replies-icon--close {
+  display: none;
+}
+
+.comment__replies-toggle[aria-expanded="false"] .comment__replies-icon--open {
+  display: none;
+}
+
+.comment__replies-toggle[aria-expanded="false"] .comment__replies-icon--close {
+  display: inline-flex;
+}
+
+/* Threaded comments indentation */
+.comment .indented {
+  margin-inline-start: var(--solo-px32);
+  padding-inline-start: var(--solo-px16);
+  border-inline-start: 2px solid var(--r-br);
+}
+
+/* Hide indented replies when toggled */
+.indented.hidden {
+  display: none;
+}
+
+/* Comment by node author */
+.by-node-author .comment__author {
+  color: var(--r-lk);
+}
+
+/* Unpublished comment */
+.comment.unpublished {
+  opacity: 0.6;
+}
+
+/* Parent relationship (visually hidden) */
+.parent.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion:reduce) {
+  .comment__permalink,
+  .comment__links a,
+  .comment__replies-toggle,
+  .comment__replies-icon {
+    transition: none;
+  }
+
+}
+
+/* Focus visible */
+.comment a:focus-visible,
+.comment button:focus-visible {
+  outline: 2px solid var(--r-lk);
+  outline-offset: 2px;
+  border-radius: var(--solo-px2);
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .new-comment {
+    forced-color-adjust: none;
+  }
+
+  .comment__permalink svg,
+  .comment__replies-toggle svg {
+    fill: CanvasText;
+  }
+}
