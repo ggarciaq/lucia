@@ -1,0 +1,28 @@
+uuid: 6757ece2-8a5e-4e74-8078-807f23b71699
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.imagen
+    - field.field.block_content.imagen.field_imagen
+    - image.style.texto_imagen_lateral
+  module:
+    - media
+id: block_content.imagen.default
+targetEntityType: block_content
+bundle: imagen
+mode: default
+content:
+  field_imagen:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: texto_imagen_lateral
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true

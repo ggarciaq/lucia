@@ -1,0 +1,29 @@
+uuid: 68bb9905-cab0-4bc1-adb8-aa365f5f50ad
+langcode: es
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - lucia_front
+id: lucia_front_navegacionprincipal
+theme: lucia_front
+region: primary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Navegación principal'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '/admin/*'

@@ -1,0 +1,120 @@
+<?php
+
+use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\Core\Entity\Entity\EntityViewDisplay;
+use Drupal\Core\Entity\FieldableEntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Plugin\Context\Context;
+use Drupal\Core\Plugin\Context\ContextDefinition;
+use Drupal\Core\Plugin\Context\EntityContext;
+use Drupal\file\Entity\File;
+use Drupal\layout_builder\Form\ConfigureSectionForm;
+use Drupal\layout_builder\Section;
+
+/**
+ * Implements hook_form_FORM_ID_alter() for the Layout Builder section form.
+ */
+function lucia_layout_background_form_layout_builder_configure_section_alter(array &$form, FormStateInterface $form_state, $form_id): void {
+  $form_object = $form_state->getFormObject();
+  if (!$form_object instanceof ConfigureSectionForm) {
+    return;
+  }
+
+  $layout = $form_object->getCurrentLayout();
+  $default_fid = (int) ($layout->getConfiguration()['lucia_layout_background_fid'] ?? 0);
+
+  $form['background_image'] = [
+    '#type' => 'managed_file',
+    '#title' => t('Background image'),
+    '#description' => t('Optional image used as the background for this section.'),
+    '#default_value' => $default_fid ? [$default_fid] : [],
+    '#upload_location' => 'public://layout-builder-backgrounds/',
+    '#upload_validators' => [
+      'FileExtension' => ['extensions' => 'png jpg jpeg webp gif svg'],
+    ],
+    '#weight' => 100,
+  ];
+
+  if (!isset($form['#submit'])) {
+    $form['#submit'] = [];
+  }
+  array_unshift($form['#submit'], 'lucia_layout_background_configure_section_submit');
+}
+
+/**
+ * Submit handler for the Layout Builder section form.
+ */
+function lucia_layout_background_configure_section_submit(array &$form, FormStateInterface $form_state): void {
+  $form_object = $form_state->getFormObject();
+  if (!$form_object instanceof ConfigureSectionForm) {
+    return;
+  }
+
+  $layout = $form_object->getCurrentLayout();
+  $configuration = $layout->getConfiguration();
+  $value = $form_state->getValue('background_image');
+  if (is_array($value) && isset($value['fids']) && is_array($value['fids'])) {
+    $fid = (int) ($value['fids'][0] ?? 0);
+  }
+  else {
+    $fid = is_array($value) ? (int) ($value[0] ?? 0) : (int) $value;
+  }
+
+  if ($fid > 0 && ($file = File::load($fid))) {
+    $file->setPermanent();
+    $file->save();
+    $configuration['lucia_layout_background_fid'] = $fid;
+    $layout->setConfiguration($configuration);
+    return;
+  }
+
+  unset($configuration['lucia_layout_background_fid']);
+  $layout->setConfiguration($configuration);
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for layout--twocol-section.html.twig.
+ */
+function lucia_layout_background_preprocess_layout__twocol_section(array &$variables): void {
+  $fid = (int) ($variables['settings']['lucia_layout_background_fid'] ?? 0);
+  if ($fid > 0 && ($file = File::load($fid))) {
+    $variables['background_image_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
+    return;
+  }
+
+  $entity = $variables['content']['#entity'] ?? NULL;
+  if (!$entity instanceof FieldableEntityInterface) {
+    $variables['background_image_url'] = NULL;
+    return;
+  }
+
+  $contexts = [
+    'entity' => EntityContext::fromEntity($entity),
+    'view_mode' => new Context(new ContextDefinition('string'), 'full'),
+  ];
+  $display = EntityViewDisplay::collectRenderDisplay($entity, 'full');
+  if ($display instanceof \Drupal\layout_builder\Entity\LayoutEntityDisplayInterface) {
+    $contexts['display'] = EntityContext::fromEntity($display);
+  }
+
+  $storage = \Drupal::service('plugin.manager.layout_builder.section_storage')->findByContext($contexts, new CacheableMetadata());
+  if ($storage) {
+    foreach ($storage->getSections() as $section) {
+      if (!$section instanceof Section) {
+        continue;
+      }
+/*
+      if ($section->getLayoutSettings() !== $variables['settings']) {
+        continue;
+      }
+*/
+      $fid = (int) ($section->getLayoutSettings()['lucia_layout_background_fid'] ?? 0);
+      if ($fid > 0 && ($file = File::load($fid))) {
+        $variables['background_image_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
+        return;
+      }
+    }
+  }
+
+  $variables['background_image_url'] = NULL;
+}

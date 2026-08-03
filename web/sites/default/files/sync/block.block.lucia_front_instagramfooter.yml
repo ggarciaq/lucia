@@ -1,0 +1,28 @@
+uuid: 9b08fa79-2abb-4466-89fa-761411f5daa2
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:enlace:046b7065-ffce-4721-a596-478675a62fa6'
+  module:
+    - block_content
+    - system
+  theme:
+    - lucia_front
+id: lucia_front_instagramfooter
+theme: lucia_front
+region: footer_first
+weight: 0
+provider: null
+plugin: 'block_content:046b7065-ffce-4721-a596-478675a62fa6'
+settings:
+  id: 'block_content:046b7065-ffce-4721-a596-478675a62fa6'
+  label: 'Instagram footer'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '/admin*'

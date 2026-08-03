@@ -1,0 +1,11 @@
+uuid: fd70b4b9-318a-4a6f-919b-f97577205272
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.texto_e_imagen
+id: block_content.texto_e_imagen
+target_entity_type_id: block_content
+target_bundle: texto_e_imagen
+default_langcode: site_default
+language_alterable: false

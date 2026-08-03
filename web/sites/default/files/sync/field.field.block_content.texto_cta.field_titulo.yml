@@ -1,0 +1,26 @@
+uuid: caacf768-4c1d-40d0-b65b-a6fe95701ecd
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.texto_cta
+    - field.storage.block_content.field_titulo
+    - filter.format.basic_html
+    - filter.format.full_html
+  module:
+    - text
+id: block_content.texto_cta.field_titulo
+field_name: field_titulo
+entity_type: block_content
+bundle: texto_cta
+label: Titulo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text

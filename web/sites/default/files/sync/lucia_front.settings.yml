@@ -1,0 +1,304 @@
+_core:
+  default_config_hash: Ka6FYAWn5BwDYeHDi6mA0UpyNl-45TkgL1zgt35MuWU
+keyboard_navigation_menus:
+  account: '0'
+  admin: '0'
+  content: '0'
+  footer: '0'
+  main: '0'
+  navigation-user-links: '0'
+  tools: '0'
+site_reading_mode_content_type: {  }
+enable_px_based_widths: false
+site_global_width: sw-1600
+enable_custom_widths: false
+enable_custom_node_width_message: null
+site_global_breakpoints: sb-992
+site_regions_collapse_order: false
+site_menu_breakpoints: mn-992
+site_global_regions_gap: '16'
+site_global_font_size: '16'
+site_node_date_format: solo_date_l
+site_import_google_font: ''
+site_css_injector: ''
+site_css_dynamic: ''
+site_js_dynamic: ''
+site_login_page_on: false
+site_flip_header_menu: false
+site_opacity_onscroll_on: false
+site_inline_items_on: false
+color_coded_system_tabs: true
+site_toggle_speed: normal
+menu_template_assignments:
+  account:
+    template: ''
+    menu_name: ''
+    menu_id: account
+  admin:
+    template: ''
+    menu_name: ''
+    menu_id: admin
+  content:
+    template: ''
+    menu_name: ''
+    menu_id: content
+  footer:
+    template: ''
+    menu_name: ''
+    menu_id: footer
+  main:
+    template: ''
+    menu_name: ''
+    menu_id: main
+  navigation-user-links:
+    template: ''
+    menu_name: ''
+    menu_id: navigation-user-links
+  tools:
+    template: ''
+    menu_name: ''
+    menu_id: tools
+site_breadcrumb_pagetitle_off: false
+site_breadcrumb_scroll: true
+site_mobile_layout_order: left_main_right
+enable_per_type_layout_top: false
+enable_per_type_layout_main: false
+enable_per_type_layout_bottom: false
+enable_per_type_layout_footer: false
+main_2col: solo-col-2-1
+main_3col: solo-col-1-2-1
+count_main: 2
+classes_page_wrapper: ''
+opacity_page_wrapper: false
+classes_header: ''
+header_logo_image_alt: ''
+skip_header_content: false
+header_sitename_center_default: false
+header_sitename_center: false
+header_sitename_center_small: false
+header_change_icons: false
+site_name_font_size_s: ''
+site_name_font_size_l: ''
+site_name_google_font: ''
+site_name_animate_on: ''
+classes_highlighted: ''
+site_regions_highlighted_disable: '0'
+enable_aria_highlighted: false
+classes_breadcrumb: ''
+classes_main_container: ''
+site_regions_main_rounded: ''
+site_regions_main_border: false
+skip_main_content: false
+classes_content: ''
+align_content: region-left
+classes_credit_copyright: ''
+footer_copyright: ''
+footer_link: ''
+footer_link_label: ''
+footer_link_text: ''
+footer_use_formatted_text: false
+footer_copyright_formatted:
+  value: ''
+  format: basic_html
+header_login_links: Login
+popup_login_use_inline_styles: false
+popup_login_animation_duration: 300
+popup_login_close_on_escape: true
+popup_login_close_on_outside_click: true
+popup_login_focus_trap: true
+popup_login_announce_to_screen_readers: true
+popup_login_return_focus_on_close: true
+popup_login_custom_triggers: ''
+popup_login_z_index: 10000
+popup_login_overlay_opacity: 50
+site_load_w3css_on: false
+site_font_google_local_on: false
+site_font_awesome_on: '0'
+site_font_google_global_on: ''
+site_font_google_heading_on: ''
+site_font_google_special_on: ''
+theme_category: none
+predefined_current_theme: ''
+sm_icon_size: sm-icons-small
+sm_icon_colors: ''
+sm_show_icons: 0
+sm_icon_telegram: ''
+sm_icon_bluesky: 'https://bsky.app/profile/alaahaddad.bsky.social'
+sm_icon_reddit: 'https://www.reddit.com/user/flashwebcenter/'
+sm_icon_whatsapp: 'https://www.drupal.org/u/flashwebcenter'
+sm_icon_snapchat: 'https://www.snapchat.com/add/flashwebcenter'
+sm_icon_threads: 'https://www.drupal.org/u/flashwebcenter'
+sm_icon_tiktok: 'https://www.tiktok.com/@flashwebcenter'
+sm_icon_facebook: 'https://www.facebook.com/flashwebcenter'
+sm_icon_twitter: 'https://x.com/flashwebcenter'
+sm_icon_pinterest: 'https://www.pinterest.com/alaahaddad'
+sm_icon_linkedin: 'https://www.linkedin.com/company/flash-web-center'
+sm_icon_instagram: 'https://www.instagram.com/flashwebcenter'
+sm_icon_youtube: 'https://www.youtube.com/user/flashwebcenter'
+sm_icon_drupal: 'https://www.drupal.org/u/flashwebcenter'
+sm_icon_mastodon: 'https://mastodon.social/deck/@flashwebcenter'
+sm_icon_rss: rss.xml
+sm_icon_email: '/#email'
+disable_block_title_visibility: false
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  logo: true
+  name: true
+  node_user_picture: true
+  slogan: true
+logo:
+  use_default: false
+  path: 'public://logo.png'
+favicon:
+  use_default: true
+comment_heading_first: true
+comment_title_tag: h3
+comment_show_permalink: true
+comment_show_author: true
+comment_show_date: true
+comment_show_picture: true
+comment_show_new_indicator: true
+comment_date_format: solo_relative
+comment_form_position: before
+placeholder_info: ''
+settings_page_wrapper___r_bg_fr: ''
+settings_page_wrapper___r_bg: ''
+settings_page_wrapper___r_tx: ''
+settings_page_wrapper___r_h1: ''
+settings_page_wrapper___r_lk: ''
+settings_page_wrapper___r_lk_h: ''
+settings_page_wrapper___r_br: ''
+settings_page_wrapper___r_tx_lk: ''
+settings_page_wrapper___r_tx_lk_h: ''
+settings_page_wrapper___r_bg_lk: ''
+settings_page_wrapper___r_bg_lk_h: ''
+settings_page_wrapper___r_tx_bt: ''
+settings_page_wrapper___r_tx_bt_h: ''
+settings_page_wrapper___r_bg_bt: ''
+settings_page_wrapper___r_bg_bt_h: ''
+settings_header___r_bg_fr: ''
+settings_header___r_bg: ''
+settings_header___r_tx: ''
+settings_header___r_h1: ''
+settings_header___r_lk: ''
+settings_header___r_lk_h: ''
+settings_header___r_br: ''
+settings_header___r_tx_lk: ''
+settings_header___r_tx_lk_h: ''
+settings_header___r_bg_lk: ''
+settings_header___r_bg_lk_h: ''
+settings_header___r_tx_bt: ''
+settings_header___r_tx_bt_h: ''
+settings_header___r_bg_bt: ''
+settings_header___r_bg_bt_h: ''
+settings_breadcrumb___r_bg_fr: ''
+settings_breadcrumb___r_bg: ''
+settings_breadcrumb___r_tx: ''
+settings_breadcrumb___r_h1: ''
+settings_breadcrumb___r_lk: ''
+settings_breadcrumb___r_lk_h: ''
+settings_breadcrumb___r_br: ''
+settings_breadcrumb___r_tx_lk: ''
+settings_breadcrumb___r_tx_lk_h: ''
+settings_breadcrumb___r_bg_lk: ''
+settings_breadcrumb___r_bg_lk_h: ''
+settings_breadcrumb___r_tx_bt: ''
+settings_breadcrumb___r_tx_bt_h: ''
+settings_breadcrumb___r_bg_bt: ''
+settings_breadcrumb___r_bg_bt_h: ''
+settings_main_container___r_bg_fr: ''
+settings_main_container___r_bg: ''
+settings_main_container___r_tx: ''
+settings_main_container___r_h1: ''
+settings_main_container___r_lk: ''
+settings_main_container___r_lk_h: ''
+settings_main_container___r_br: ''
+settings_main_container___r_tx_lk: ''
+settings_main_container___r_tx_lk_h: ''
+settings_main_container___r_bg_lk: ''
+settings_main_container___r_bg_lk_h: ''
+settings_main_container___r_tx_bt: ''
+settings_main_container___r_tx_bt_h: ''
+settings_main_container___r_bg_bt: ''
+settings_main_container___r_bg_bt_h: ''
+settings_content___r_bg_fr: ''
+settings_content___r_bg: ''
+settings_content___r_tx: ''
+settings_content___r_h1: ''
+settings_content___r_lk: ''
+settings_content___r_lk_h: ''
+settings_content___r_br: ''
+settings_content___r_tx_lk: ''
+settings_content___r_tx_lk_h: ''
+settings_content___r_bg_lk: ''
+settings_content___r_bg_lk_h: ''
+settings_content___r_tx_bt: ''
+settings_content___r_tx_bt_h: ''
+settings_content___r_bg_bt: ''
+settings_content___r_bg_bt_h: ''
+settings_credit_copyright___r_bg_fr: ''
+settings_credit_copyright___r_bg: ''
+settings_credit_copyright___r_tx: ''
+settings_credit_copyright___r_h1: ''
+settings_credit_copyright___r_lk: ''
+settings_credit_copyright___r_lk_h: ''
+settings_credit_copyright___r_br: ''
+settings_credit_copyright___r_tx_lk: ''
+settings_credit_copyright___r_tx_lk_h: ''
+settings_credit_copyright___r_bg_lk: ''
+settings_credit_copyright___r_bg_lk_h: ''
+settings_credit_copyright___r_tx_bt: ''
+settings_credit_copyright___r_tx_bt_h: ''
+settings_credit_copyright___r_bg_bt: ''
+settings_credit_copyright___r_bg_bt_h: ''
+settings_highlighted___r_bg_fr: ''
+settings_highlighted___r_bg: ''
+settings_highlighted___r_tx: ''
+settings_highlighted___r_h1: ''
+settings_highlighted___r_lk: ''
+settings_highlighted___r_lk_h: ''
+settings_highlighted___r_br: ''
+settings_highlighted___r_tx_lk: ''
+settings_highlighted___r_tx_lk_h: ''
+settings_highlighted___r_bg_lk: ''
+settings_highlighted___r_bg_lk_h: ''
+settings_highlighted___r_tx_bt: ''
+settings_highlighted___r_tx_bt_h: ''
+settings_highlighted___r_bg_bt: ''
+settings_highlighted___r_bg_bt_h: ''
+preloader_enabled: false
+preloader_force_show: false
+preloader_disable_authenticated: true
+preloader_disable_admin_routes: true
+preloader_path_rules: ''
+preloader_hide_on: dom_ready
+preloader_transition: fade
+preloader_max_display_seconds: 8
+preloader_style: spinner
+preloader_spinner_show_percent: false
+preloader_logo_use_theme: true
+preloader_logo_url: ''
+preloader_logo_width: 160
+preloader_logo_height: 80
+preloader_logo_opacity: 100
+preloader_text: ''
+preloader_text_font: ''
+preloader_text_font_size: 24
+preloader_text_animate_effect: ''
+settings_preloader___r_tx: ''
+settings_preloader___r_bg: ''
+preloader_bg_opacity: 100
+back_to_top_enabled: false
+back_to_top_disable_admin_routes: true
+back_to_top_disable_authenticated: false
+back_to_top_hide_small_screens: false
+back_to_top_scroll_threshold: 400
+back_to_top_position: bottom-right
+back_to_top_style: solid
+back_to_top_icon: arrow-up
+settings_back_to_top___r_bg: ''
+settings_back_to_top___r_tx: ''
+solo_layout_main_2col_landing: solo-col-2-1
+solo_layout_main_3col_landing: solo-col-1-2-1

@@ -1,0 +1,11 @@
+uuid: 0762b712-ddf7-43bf-92e6-12c01e390196
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.texto_cta
+id: block_content.texto_cta
+target_entity_type_id: block_content
+target_bundle: texto_cta
+default_langcode: site_default
+language_alterable: false

@@ -2,7 +2,10 @@
 /vendor/
 
 # Drupal
-/web/sites/default/files/
+/web/sites/default/files/*
+!/web/sites/default/files/.htaccess
+!/web/sites/default/files/sync/
+!/web/sites/default/files/sync/**
 /web/sites/default/settings.local.php
 /web/sites/default/services.local.yml
 

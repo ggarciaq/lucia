@@ -1,0 +1,23 @@
+uuid: 122cc772-0169-4ce5-beac-a17516191411
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.texto_e_imagen
+    - field.storage.block_content.field_cta
+  module:
+    - link
+id: block_content.texto_e_imagen.field_cta
+field_name: field_cta
+entity_type: block_content
+bundle: texto_e_imagen
+label: CTA
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

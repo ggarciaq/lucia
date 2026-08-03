@@ -1,0 +1,26 @@
+uuid: 6ce5c31d-38b6-4f39-becb-0d978f0960ba
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.texto_e_imagen
+    - field.storage.block_content.field_descripcion
+    - filter.format.basic_html
+    - filter.format.full_html
+  module:
+    - text
+id: block_content.texto_e_imagen.field_descripcion
+field_name: field_descripcion
+entity_type: block_content
+bundle: texto_e_imagen
+label: Descripcion
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text_long

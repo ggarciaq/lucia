@@ -1,0 +1,22 @@
+uuid: b06e9247-e03d-4cc2-9abd-6e0d9ae32a12
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - lucia_front
+_core:
+  default_config_hash: 8nOAry2oKqJOr0zbrlJ3sZHDFJLIO6j-0vT0K_TYca4
+id: lucia_front_help
+theme: lucia_front
+region: highlighted
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

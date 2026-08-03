@@ -1,0 +1,27 @@
+uuid: 9fb707f4-627f-4971-822f-1734309d5ed9
+langcode: es
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - solo
+_core:
+  default_config_hash: 0MywRd_h0kl9qHSLap9nKGHLkZj3n5_J9sQmhTC9gKo
+id: solo_footer
+theme: solo
+region: footer_menu
+weight: -10
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: 'Menú del pie'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: true
+visibility: {  }

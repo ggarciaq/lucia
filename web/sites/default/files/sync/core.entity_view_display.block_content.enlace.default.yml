@@ -1,0 +1,38 @@
+uuid: fd780a95-c2d3-4ae4-b7a4-76c0b144dd4e
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.enlace
+    - field.field.block_content.enlace.field_cta
+    - field.field.block_content.enlace.field_imagen
+  module:
+    - link
+id: block_content.enlace.default
+targetEntityType: block_content
+bundle: enlace
+mode: default
+content:
+  field_cta:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_imagen:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true

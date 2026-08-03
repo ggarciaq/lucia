@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Component\Utility\Html;
 use Drupal\image\Entity\ImageStyle;
 
 /**
@@ -15,6 +16,111 @@ function lucia_front_theme_suggestions_block_alter(&$suggestions, $variables) {
   // Load theme suggestions for blocks from parent theme.
   foreach ($suggestions as &$suggestion) {
     $suggestion = str_replace('solo_', 'lucia_front_', $suggestion);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page__node__2.
+ *
+ * Applies the "texto_imagen_lateral" image style to any image render array
+ * that is part of the content rendered for the node 2 page.
+ */
+function lucia_front_preprocess_page__node__2(array &$variables) {
+  if (empty($variables['node'])) {
+    return;
+  }
+
+  $node = $variables['node'];
+  if ($node->id() !== 2) {
+    return;
+  }
+
+  if (!empty($variables['page']['content'])) {
+    _lucia_front_apply_image_style_recursive($variables['page']['content'], 'texto_imagen_lateral');
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node--2.
+ *
+ * Applies the "texto_imagen_lateral" image style to the images rendered in
+ * the node 2 content, which is the render pipeline used by the page template.
+ */
+function lucia_front_preprocess_node__2(array &$variables) {
+  if (empty($variables['node']) || $variables['node']->id() !== 2) {
+    return;
+  }
+
+  if (!empty($variables['content']) && is_array($variables['content'])) {
+    _lucia_front_apply_image_style_recursive($variables['content'], 'texto_imagen_lateral');
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block.
+ *
+ * Adds sequential classes (seccion-1, seccion-2, ...) to block_content
+ * sections rendered on node 2.
+ */
+function lucia_front_preprocess_block(array &$variables): void {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node || (int) $node->id() !== 2) {
+    return;
+  }
+
+  $base_plugin_id = $variables['elements']['#base_plugin_id'] ?? NULL;
+  if ($base_plugin_id !== 'block_content') {
+    return;
+  }
+
+  static $section_index = 0;
+  $section_index++;
+  $variables['attributes']['class'][] = 'seccion-' . $section_index;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for layout.
+ *
+ * Adds sequential classes (layout-parent-1, layout-parent-2, ...) to every
+ * top-level Layout Builder section (layout--twocol-section, layout--onecol,
+ * ...) rendered on node 2, so each section can be targeted individually.
+ */
+function lucia_front_preprocess_layout(array &$variables): void {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node || (int) $node->id() !== 2) {
+    return;
+  }
+
+  static $layout_index = 0;
+  $layout_index++;
+  $variables['attributes']['class'][] = 'layout-parent-' . $layout_index;
+}
+
+/**
+ * Recursively applies an image style to image render arrays.
+ */
+function _lucia_front_apply_image_style_recursive(array &$elements, string $style_name): void {
+  foreach ($elements as &$element) {
+    if (!is_array($element)) {
+      continue;
+    }
+
+    $theme = $element['#theme'] ?? NULL;
+    if ($theme === 'image_style' && isset($element['#style_name'])) {
+      $element['#style_name'] = $style_name;
+    }
+    elseif ($theme === 'image_formatter' && isset($element['#image_style'])) {
+      $element['#image_style'] = $style_name;
+    }
+    elseif ($theme === 'image' && isset($element['#style_name'])) {
+      $element['#style_name'] = $style_name;
+    }
+
+    foreach ($element as $child_key => $child_value) {
+      if (is_array($child_value) && $child_key !== '#attributes' && $child_key !== '#cache') {
+        _lucia_front_apply_image_style_recursive($element[$child_key], $style_name);
+      }
+    }
   }
 }
 
@@ -57,8 +163,63 @@ function lucia_front_preprocess_block__block_content__type__texto_e_imagen(&$var
   $variables['posicion_imagen'] = 'derecha';
 
   $block_content = $variables['elements']['content']['#block_content'] ?? NULL;
+  if ($block_content) {
+    $block_modifier_classes = [
+      '2' => 'texto-imagen-block--sobre-mi-home',
+      '3' => 'texto-imagen-block--la-habitacion-home',
+      '5' => 'texto-imagen-block--practica-home',
+    ];
+    $block_id = (string) $block_content->id();
+    if (isset($block_modifier_classes[$block_id])) {
+      $variables['attributes']['class'][] = $block_modifier_classes[$block_id];
+    }
+  }
+
   if ($block_content && $block_content->hasField('field_posicion_imagen') && !$block_content->get('field_posicion_imagen')->isEmpty()) {
     $variables['posicion_imagen'] = $block_content->get('field_posicion_imagen')->value;
+  }
+
+  $media = $variables['content']['field_imagen'][0]['#media'] ?? NULL;
+  if (!$media || !$media->hasField('field_media_image')) {
+    return;
+  }
+
+  $image_item = $media->get('field_media_image');
+  $file = $image_item->entity;
+  if (!$file) {
+    return;
+  }
+  
+  $variables['img_alt'] = $image_item->alt ?? '';
+  if ($block_content->get('field_posicion_imagen')->value != 'fondo') {
+
+    $style = ImageStyle::load('texto_imagen_lateral');
+    if ($style) {
+      $variables['img_url'] = $style->buildUrl($file->getFileUri());
+    }
+  }
+  else {
+      $variables['img_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
+  }
+ 
+}
+
+
+/**
+ * Implements hook_preprocess_HOOK() for block--block-content--type--enlace.
+ *
+ * Exposes the URL of "field_cta" as "cta_url" so the template can wrap the
+ * icon image ("field_imagen") in the same link, making the whole icon
+ * clickable and not just the text below it.
+ */
+function lucia_front_preprocess_block__block_content__type__enlace(&$variables) {
+  $variables['cta_url'] = NULL;
+  $variables['img_url'] = NULL;
+  $variables['img_alt'] = NULL;
+
+  $block_content = $variables['elements']['content']['#block_content'] ?? NULL;
+  if ($block_content && $block_content->hasField('field_cta') && !$block_content->get('field_cta')->isEmpty()) {
+    $variables['cta_url'] = $block_content->get('field_cta')->first()->getUrl()->toString();
   }
 
   $media = $variables['content']['field_imagen'][0]['#media'] ?? NULL;

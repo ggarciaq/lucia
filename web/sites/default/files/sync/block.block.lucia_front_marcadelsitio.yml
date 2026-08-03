@@ -1,0 +1,23 @@
+uuid: 30d7a92b-aade-4c5f-97af-6a819d270bcc
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - lucia_front
+id: lucia_front_marcadelsitio
+theme: lucia_front
+region: highlighted
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Marca del sitio'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

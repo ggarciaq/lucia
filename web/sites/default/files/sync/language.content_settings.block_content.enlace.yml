@@ -1,0 +1,11 @@
+uuid: e25459ad-cc93-4b7b-93dc-6ab5d73d0791
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.enlace
+id: block_content.enlace
+target_entity_type_id: block_content
+target_bundle: enlace
+default_langcode: site_default
+language_alterable: false

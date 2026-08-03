@@ -1,0 +1,21 @@
+uuid: c0723752-49df-43b2-aadb-64615b58abd7
+langcode: es
+status: true
+dependencies: {  }
+name: texto_imagen_lateral
+label: 'Texto imagen lateral'
+effects:
+  5129bad7-0c33-496f-aa8c-d81b96fd71b3:
+    uuid: 5129bad7-0c33-496f-aa8c-d81b96fd71b3
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 800
+      anchor: center-center
+  c38215b9-8fa2-4e84-a053-9c79950ceaed:
+    uuid: c38215b9-8fa2-4e84-a053-9c79950ceaed
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

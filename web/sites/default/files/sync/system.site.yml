@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
+langcode: es
+uuid: a27b4dae-ff3f-4817-9a67-4c4f9592e295
+name: 'Lucia Nieto'
+mail: g.garcia.queiros@gmail.com
+slogan: 'Yoga phicosomatico'
+page:
+  403: ''
+  404: ''
+  front: /node/1
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: es
+mail_notification: null

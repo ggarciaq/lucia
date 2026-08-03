@@ -1,0 +1,45 @@
+uuid: b1421cbc-5dff-4072-9493-8742bfb26fc1
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.texto_cta
+    - field.field.block_content.texto_cta.field_cta
+    - field.field.block_content.texto_cta.field_descripcion
+    - field.field.block_content.texto_cta.field_titulo
+  module:
+    - link
+    - text
+id: block_content.texto_cta.default
+targetEntityType: block_content
+bundle: texto_cta
+mode: default
+content:
+  field_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_descripcion:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_titulo:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

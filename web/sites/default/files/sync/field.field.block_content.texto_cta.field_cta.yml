@@ -1,0 +1,23 @@
+uuid: edbc163c-edb2-4f82-afd0-1d25db6e8014
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.texto_cta
+    - field.storage.block_content.field_cta
+  module:
+    - link
+id: block_content.texto_cta.field_cta
+field_name: field_cta
+entity_type: block_content
+bundle: texto_cta
+label: CTA
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

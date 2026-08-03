@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Bloque "Enlace": icono enlazado a una red social o vía de contacto.
+ *
+ * La variable `cta_url` se calcula en
+ * lucia_front_preprocess_block__block_content__type__enlace()
+ * dentro de lucia_front.theme, a partir del primer valor de field_cta, para
+ * poder envolver el icono (field_imagen) en el mismo enlace y que también
+ * sea clicable, no solo el texto.
+ */
+#}
+<section{{ attributes.addClass('enlace-block') }}>
+    <a href="{{ cta_url }}" class="enlace-block__image-link">
+        {{ content.field_imagen }}
+    </a>
+</section>

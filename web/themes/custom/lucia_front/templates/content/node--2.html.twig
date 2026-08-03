@@ -1,0 +1,55 @@
+{#
+/**
+ * @file
+ * Plantilla específica para el nodo ID 2.
+ *
+ * Mantiene la estructura base del tema para no romper Layout Builder.
+ */
+#}
+{% set classes = [
+    'node',
+    'solo-clear',
+  'mis-historia-fondo',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'node--id-2',
+  ]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+
+  <header class="solo-clear node__header{{ (label and not page) or display_submitted ? '' : ' header-is-empty' }}">
+    {{ title_prefix }}
+    {% if label and not page %}
+      <h3 {{ title_attributes.addClass('node__title') }}>
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h3>
+    {% endif %}
+    {{ title_suffix }}
+
+    {% if display_submitted %}
+      <div class="node__meta">
+      {% if author_picture %}
+        <div class="node__author-image">
+          {{ author_picture }}
+        </div>
+      {% endif %}
+        <div class="node__author-info" {{ author_attributes }}>
+          <span {{ author_attributes }}>
+            {{ 'By'|t }} {% apply spaceless %}{{ author_name }}{% endapply %} | {{ date }}
+          </span>
+        </div>
+        {{ metadata }}
+      </div>
+    {% endif %}
+
+  </header>
+
+  <div{{ content_attributes.addClass('solo-clear node__content') }}>
+    {{ content }}
+  </div>
+
+</article>

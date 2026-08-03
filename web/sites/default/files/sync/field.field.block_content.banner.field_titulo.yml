@@ -1,0 +1,26 @@
+uuid: 2d496121-d3ee-426b-b984-0fb1f83e87fd
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.banner
+    - field.storage.block_content.field_titulo
+    - filter.format.basic_html
+    - filter.format.full_html
+  module:
+    - text
+id: block_content.banner.field_titulo
+field_name: field_titulo
+entity_type: block_content
+bundle: banner
+label: Titulo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text
