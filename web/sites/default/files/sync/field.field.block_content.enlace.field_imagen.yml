@@ -1,0 +1,29 @@
+uuid: afb37372-5bd4-47c6-8bc7-aa39ca0cbf3d
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.enlace
+    - field.storage.block_content.field_imagen
+    - media.type.image
+id: block_content.enlace.field_imagen
+field_name: field_imagen
+entity_type: block_content
+bundle: enlace
+label: Imagen
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

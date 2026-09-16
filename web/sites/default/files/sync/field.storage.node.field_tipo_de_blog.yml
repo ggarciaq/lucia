@@ -1,0 +1,20 @@
+uuid: de508139-87dd-4c92-ab18-a9e6e42fe2c3
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_tipo_de_blog
+field_name: field_tipo_de_blog
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

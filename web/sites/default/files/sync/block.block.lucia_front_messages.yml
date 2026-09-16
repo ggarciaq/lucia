@@ -1,0 +1,22 @@
+uuid: c577beea-c30a-45b9-8936-18f4553b42e4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - lucia_front
+_core:
+  default_config_hash: WvPhI8OwllG0gE69-F8qL3ai3nd5SbYD6JpmEuZcyok
+id: lucia_front_messages
+theme: lucia_front
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

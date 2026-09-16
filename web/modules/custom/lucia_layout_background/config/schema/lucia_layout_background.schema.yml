@@ -1,0 +1,7 @@
+layout_plugin.settings.layout_twocol_section:
+  type: layout_builder_multi_width
+  mapping:
+    lucia_layout_background_fid:
+      type: integer
+      label: 'Background image file ID'
+      nullable: true

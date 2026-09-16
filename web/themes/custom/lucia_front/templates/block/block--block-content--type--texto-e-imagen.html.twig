@@ -13,13 +13,31 @@
  * Con 'centrada', el texto se muestra arriba y la imagen debajo, centrada.
  */
 #}
-<section{{ attributes.addClass('texto-imagen-block', 'texto-imagen-block--imagen-' ~ posicion_imagen) }}>
-  <div class="texto-imagen-block__text">
-    {{ content.field_descripcion }}
-  </div>
-  <div class="texto-imagen-block__image">
-    {% if img_url %}
-      <img src="{{ img_url }}" alt="{{ img_alt }}" loading="lazy" />
-    {% endif %}
-  </div>
-</section>
+
+{% if posicion_imagen != 'fondo' %}
+  <section{{ attributes.addClass('texto-imagen-block', 'texto-imagen-block--imagen-' ~ posicion_imagen) }}>
+    <div class="texto-imagen-block__content">
+      <div class="texto-imagen-block__titulo">
+        {{ content.field_titulo }}
+      </div>
+      <div class="texto-imagen-block__text">
+        {{ content.field_descripcion }}
+      </div>
+      <div class="texto-imagen-block__cta">
+        {{ content.field_cta }}
+      </div>
+    </div>
+    <div class="texto-imagen-block__image">
+      {% if img_url %}
+        <img src="{{ img_url }}" alt="{{ img_alt }}" loading="lazy" />
+      {% endif %}
+    </div>
+  </section>
+{% else %}
+  <section{{ attributes.addClass(posicion_imagen) }}>
+    <div class="texto-imagen-block__text_imagen_fondo"{% if img_url %}{% endif %}>
+       {{ content.field_descripcion }}
+   </div>
+   
+  </section>
+{% endif %}

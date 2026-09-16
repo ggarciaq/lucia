@@ -1,0 +1,21 @@
+uuid: 1a0cf6c3-93ba-479a-ac39-dfcf358d7492
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.texto_e_imagen
+    - field.storage.block_content.field_posicion_imagen
+  module:
+    - options
+id: block_content.texto_e_imagen.field_posicion_imagen
+field_name: field_posicion_imagen
+entity_type: block_content
+bundle: texto_e_imagen
+label: 'Posición imagen'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

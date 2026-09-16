@@ -1,0 +1,23 @@
+{% if rows %}
+  <div class="hemeroteca-list">
+    {% for row in rows %}
+      <div class="hemeroteca-row">
+        <span class="hemeroteca-row__category">
+          {%- for content in row.columns.field_tipo_de_blog.content -%}
+            {{- content.field_output -}}
+          {%- endfor -%}
+        </span>
+        <span class="hemeroteca-row__title">
+          {%- for content in row.columns.title.content -%}
+            {{- content.field_output -}}
+          {%- endfor -%}
+        </span>
+        <span class="hemeroteca-row__date">
+          {%- for content in row.columns.created.content -%}
+            {{- content.field_output -}}
+          {%- endfor -%}
+        </span>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

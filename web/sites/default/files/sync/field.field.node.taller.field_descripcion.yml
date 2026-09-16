@@ -1,0 +1,26 @@
+uuid: 1f77ad8b-14f0-476b-9f9d-38c056b02d36
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_descripcion
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.taller
+  module:
+    - text
+id: node.taller.field_descripcion
+field_name: field_descripcion
+entity_type: node
+bundle: taller
+label: Descripcion
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text_long

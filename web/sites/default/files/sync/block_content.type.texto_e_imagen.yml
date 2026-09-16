@@ -1,0 +1,8 @@
+uuid: 4354556c-9249-421c-8e5b-807cf4f7386e
+langcode: es
+status: true
+dependencies: {  }
+id: texto_e_imagen
+label: 'Texto e imagen'
+revision: false
+description: null

@@ -1,0 +1,8 @@
+uuid: 8f19bd2d-9855-43d0-84d1-c46f0492a828
+langcode: es
+status: true
+dependencies: {  }
+id: texto_cta
+label: 'Texto CTA'
+revision: false
+description: null

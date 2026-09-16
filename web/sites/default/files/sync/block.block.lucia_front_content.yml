@@ -1,0 +1,22 @@
+uuid: 78658f61-c309-4afe-af96-ea167f8179cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - lucia_front
+_core:
+  default_config_hash: hBHXB7hC05XU7pDYzETt-GUcpFlogK1gkjyAsg0Ym58
+id: lucia_front_content
+theme: lucia_front
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: 6233e504-2bf0-49ac-9626-cdcb5851e20d
+langcode: en
+status: true
+dependencies:
+  theme:
+    - radix_starterkit
+_core:
+  default_config_hash: X-W2ColNXhXATUetn63wAwjUENB35LrABD_g0Zhl5Yo
+id: radix_starterkit_page_title
+theme: radix_starterkit
+region: header
+weight: -2
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

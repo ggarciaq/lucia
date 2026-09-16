@@ -1,0 +1,26 @@
+uuid: 82960f0e-531d-49dc-81c3-e84d9fada88c
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.banner
+    - field.storage.block_content.field_frase
+    - filter.format.basic_html
+    - filter.format.full_html
+  module:
+    - text
+id: block_content.banner.field_frase
+field_name: field_frase
+entity_type: block_content
+bundle: banner
+label: Frase
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text

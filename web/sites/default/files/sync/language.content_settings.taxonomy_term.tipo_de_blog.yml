@@ -1,0 +1,11 @@
+uuid: aabafff1-1033-42a4-8a46-633c4b62060a
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.tipo_de_blog
+id: taxonomy_term.tipo_de_blog
+target_entity_type_id: taxonomy_term
+target_bundle: tipo_de_blog
+default_langcode: site_default
+language_alterable: false

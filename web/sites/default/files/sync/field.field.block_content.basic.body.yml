@@ -1,0 +1,28 @@
+uuid: dfa3ae69-603f-4995-b112-6088bb0fc42e
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+    - field.storage.block_content.body
+    - filter.format.basic_html
+    - filter.format.full_html
+  module:
+    - text
+_core:
+  default_config_hash: EMr_qVrI5RWwhnTUxZkHqQEZhDT3UfcwmFfobpxgkbk
+id: block_content.basic.body
+field_name: body
+entity_type: block_content
+bundle: basic
+label: Cuerpo
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text_long

@@ -1,0 +1,26 @@
+uuid: 471608c2-b14c-4ae2-88e3-7c8b34c70c62
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.texto_e_imagen
+    - field.storage.block_content.field_titulo
+    - filter.format.basic_html
+    - filter.format.full_html
+  module:
+    - text
+id: block_content.texto_e_imagen.field_titulo
+field_name: field_titulo
+entity_type: block_content
+bundle: texto_e_imagen
+label: Titulo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text

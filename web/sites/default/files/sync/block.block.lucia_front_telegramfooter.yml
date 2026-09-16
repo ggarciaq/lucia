@@ -1,0 +1,28 @@
+uuid: bf3d7199-6feb-48f2-bc1f-2dee12b39c31
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:enlace:55f20fc8-4ce4-4c21-963c-f34aaa9c4752'
+  module:
+    - block_content
+    - system
+  theme:
+    - lucia_front
+id: lucia_front_telegramfooter
+theme: lucia_front
+region: footer_second
+weight: -5
+provider: null
+plugin: 'block_content:55f20fc8-4ce4-4c21-963c-f34aaa9c4752'
+settings:
+  id: 'block_content:55f20fc8-4ce4-4c21-963c-f34aaa9c4752'
+  label: 'Telegram footer'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '/admin*'

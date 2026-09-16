@@ -1,0 +1,28 @@
+uuid: ab6a3cb1-6285-42da-8881-b5ab75f66101
+langcode: es
+status: true
+dependencies:
+  content:
+    - 'block_content:enlace:b7245922-6519-436e-b22b-8b70ea65fc6e'
+  module:
+    - block_content
+    - system
+  theme:
+    - lucia_front
+id: lucia_front_correoelectronicofooter
+theme: lucia_front
+region: footer_third
+weight: -5
+provider: null
+plugin: 'block_content:b7245922-6519-436e-b22b-8b70ea65fc6e'
+settings:
+  id: 'block_content:b7245922-6519-436e-b22b-8b70ea65fc6e'
+  label: 'correo electronico footer'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '/admin*'

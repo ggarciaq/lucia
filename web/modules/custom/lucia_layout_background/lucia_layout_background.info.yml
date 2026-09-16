@@ -1,0 +1,8 @@
+name: Lucia Layout Background
+type: module
+description: Adds per-section background images to Layout Builder sections.
+package: Custom
+core_version_requirement: ^11
+dependencies:
+  - drupal:file
+  - drupal:layout_builder

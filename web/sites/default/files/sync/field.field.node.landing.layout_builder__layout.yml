@@ -1,0 +1,21 @@
+uuid: 13ffcf34-317f-4528-bfbe-eb3ca963a9eb
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.layout_builder__layout
+    - node.type.landing
+  module:
+    - layout_builder
+id: node.landing.layout_builder__layout
+field_name: layout_builder__layout
+entity_type: node
+bundle: landing
+label: Diseño
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: layout_section

@@ -1,0 +1,57 @@
+uuid: 143d30ff-1608-48bc-a049-56a5c08d49d6
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.texto_cta
+    - field.field.block_content.texto_cta.field_cta
+    - field.field.block_content.texto_cta.field_descripcion
+    - field.field.block_content.texto_cta.field_titulo
+  module:
+    - link
+    - text
+id: block_content.texto_cta.default
+targetEntityType: block_content
+bundle: texto_cta
+mode: default
+content:
+  field_cta:
+    type: link_default
+    weight: 30
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_descripcion:
+    type: text_textarea
+    weight: 29
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_titulo:
+    type: text_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

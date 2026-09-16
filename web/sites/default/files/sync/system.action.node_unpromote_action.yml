@@ -1,0 +1,13 @@
+uuid: 7616f117-96f0-4420-9025-7a99d55ac430
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: cNUf0MvTLWE5jshuEe94Z-CWpnKYMgWk1ki3lHIqjmY
+id: node_unpromote_action
+label: 'Unpromote content'
+type: node
+plugin: node_unpromote_action
+configuration: {  }

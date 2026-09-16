@@ -1,0 +1,64 @@
+uuid: 69af0dab-0ae4-4f13-9337-67d8495c0af0
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.texto_e_imagen
+    - field.field.block_content.texto_e_imagen.field_cta
+    - field.field.block_content.texto_e_imagen.field_descripcion
+    - field.field.block_content.texto_e_imagen.field_imagen
+    - field.field.block_content.texto_e_imagen.field_posicion_imagen
+    - field.field.block_content.texto_e_imagen.field_titulo
+  module:
+    - link
+    - options
+    - text
+id: block_content.texto_e_imagen.default
+targetEntityType: block_content
+bundle: texto_e_imagen
+mode: default
+content:
+  field_cta:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_descripcion:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_imagen:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_posicion_imagen:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_titulo:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

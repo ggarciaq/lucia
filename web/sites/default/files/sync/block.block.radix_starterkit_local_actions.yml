@@ -1,0 +1,20 @@
+uuid: c1ca5846-decf-4bd9-9299-ad8fff97cdc6
+langcode: en
+status: true
+dependencies:
+  theme:
+    - radix_starterkit
+_core:
+  default_config_hash: hZhenSEIKX7giax7u-nIVTCQ6rno3o4mGavfZEg4fNQ
+id: radix_starterkit_local_actions
+theme: radix_starterkit
+region: header
+weight: -4
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

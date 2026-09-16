@@ -1,0 +1,22 @@
+uuid: 5974e7d3-942c-4bb6-a2f7-bb7ac3b9f700
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - solo
+_core:
+  default_config_hash: IJxkoJTRnEKkx3kvJLdscJSikSErRv3irwydbZ27oWM
+id: solo_breadcrumbs
+theme: solo
+region: breadcrumb
+weight: -100
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: 'Enlaces de ayuda a la navegación'
+  label_display: '0'
+  provider: system
+visibility: {  }

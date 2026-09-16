@@ -1,0 +1,29 @@
+uuid: f7da1c86-e2f1-4b13-8e80-c7e586597972
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.texto_e_imagen
+    - field.storage.block_content.field_imagen
+    - media.type.image
+id: block_content.texto_e_imagen.field_imagen
+field_name: field_imagen
+entity_type: block_content
+bundle: texto_e_imagen
+label: Imagen
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

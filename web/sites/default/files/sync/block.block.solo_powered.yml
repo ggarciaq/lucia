@@ -1,0 +1,22 @@
+uuid: 9cd735b2-9e2b-4529-bdc5-7489d4bd0725
+langcode: es
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - solo
+_core:
+  default_config_hash: XZfrZZug8_A3wO-LPS0D3Ewr_IPBYJ7fMbJB50tfO68
+id: solo_powered
+theme: solo
+region: footer_menu
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Funciona con Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

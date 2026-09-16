@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Gin_toolbar_custom_menu.install.
+ */
+
+/**
+ * Copies the old settings to the new ones.
+ */
+function gin_toolbar_custom_menu_update_8100() {
+  $config = \Drupal::configFactory()->getEditable('gin_toolbar_custom_menu.settings');
+  $menu = $config->get('menu');
+  if ($menu) {
+    $settings = [
+      0 => [
+        'menu' => $menu,
+        'role' => $config->get('role'),
+        'icons' => $config->get('icons'),
+      ],
+    ];
+    $config->set('settings', $settings);
+    $config->save(TRUE);
+  }
+}

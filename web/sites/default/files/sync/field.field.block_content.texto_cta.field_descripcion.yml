@@ -1,0 +1,26 @@
+uuid: 8ce47237-e63e-48fb-be4b-e8e506000178
+langcode: es
+status: true
+dependencies:
+  config:
+    - block_content.type.texto_cta
+    - field.storage.block_content.field_descripcion
+    - filter.format.basic_html
+    - filter.format.full_html
+  module:
+    - text
+id: block_content.texto_cta.field_descripcion
+field_name: field_descripcion
+entity_type: block_content
+bundle: texto_cta
+label: Descripcion
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text_long
