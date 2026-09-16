@@ -1,0 +1,45 @@
+gin_toolbar_custom_menu.settings:
+  type: config_object
+  label: 'Gin toolbar custom menu settings'
+  constraints:
+    FullyValidatable: ~
+  mapping:
+    keep_admin_menu: 
+      type: integer
+      label: 'Keep admin menu'
+    settings:
+      type: sequence
+      label: 'Settings'
+      sequence:
+        type: mapping
+        mapping:
+          menu:
+            type: string
+            label: 'menu'
+          role:
+            type: sequence
+            label: 'Role'
+            sequence:
+              type: string
+              label: 'Role'
+          excluded_role:
+            type: sequence
+            label: 'Excluded role'
+            sequence:
+              type: string
+              label: 'Excluded role'
+          icons:
+            type: sequence
+            label: 'Icons'
+            sequence:
+              type: string
+              label: 'Icons'
+          admin_menu:
+            type: string
+            label: 'Administration menu visibility'
+          actions:
+            type: sequence
+            label: 'Actions'
+            sequence:
+              type: string
+              label: 'Actions'

@@ -1,0 +1,6 @@
+services:
+  mi_breadcrumbs.blog_breadcrumb_builder:
+    class: Drupal\mi_breadcrumbs\Breadcrumb\BlogBreadcrumbBuilder
+    arguments: ['@request_stack']
+    tags:
+      - { name: breadcrumb_builder, priority: 1100 }

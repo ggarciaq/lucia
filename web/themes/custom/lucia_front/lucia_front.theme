@@ -9,6 +9,15 @@ use Drupal\image\Entity\ImageStyle;
  */
 
 /**
+ * Implements hook_preprocess_HOOK() for node.
+ *
+ * Adds node--id-N class to every node article element.
+ */
+function lucia_front_preprocess_node(array &$variables): void {
+  $variables['attributes']['class'][] = 'node--id-' . $variables['node']->id();
+}
+
+/**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function lucia_front_theme_suggestions_block_alter(&$suggestions, $variables) {
@@ -82,15 +91,9 @@ function lucia_front_preprocess_block(array &$variables): void {
  * Implements hook_preprocess_HOOK() for layout.
  *
  * Adds sequential classes (layout-parent-1, layout-parent-2, ...) to every
- * top-level Layout Builder section (layout--twocol-section, layout--onecol,
- * ...) rendered on node 2, so each section can be targeted individually.
+ * Layout Builder section on any page.
  */
 function lucia_front_preprocess_layout(array &$variables): void {
-  $node = \Drupal::routeMatch()->getParameter('node');
-  if (!$node || (int) $node->id() !== 2) {
-    return;
-  }
-
   static $layout_index = 0;
   $layout_index++;
   $variables['attributes']['class'][] = 'layout-parent-' . $layout_index;

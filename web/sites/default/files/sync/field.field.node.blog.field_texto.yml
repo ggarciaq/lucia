@@ -1,0 +1,28 @@
+uuid: d449d8ef-a3a7-4f03-97e6-96d93b3a83e7
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_texto
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.blog
+  module:
+    - text
+id: node.blog.field_texto
+field_name: field_texto
+entity_type: node
+bundle: blog
+label: Texto
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text_with_summary

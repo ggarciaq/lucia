@@ -1,0 +1,248 @@
+<?php
+
+/**
+ * @file
+ * Module File.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Menu\MenuTreeParameters;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\gin_toolbar_custom_menu\Render\Element\GinToolbarCustomMenu;
+
+/**
+ * Implements hook_help().
+ */
+function gin_toolbar_custom_menu_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the gin_toolbar_custom_menu module.
+    case 'help.page.gin_toolbar_custom_menu':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module provides the ability to change the Gin Toolbar menu for specific user roles.') . '</p>';
+      $output .= '<h3>' . t('Installation') . '</h3>';
+      $output .= '<p>' . t('<a href="https://www.drupal.org/documentation/install/modules-themes/modules-8">Normal module installation procedure</a>.') . '</p>';
+      $output .= '<h3>' . t('Dependencies') . '</h3>';
+      $output .= '<p>' . t('<a href="https://www.drupal.org/project/gin_toolbar">Gin Toolbar</a>') . '</p>';
+      $output .= '<h3>' . t('Configuration') . '</h3>';
+      $output .= '<p>' . t('Go to "/admin/config/system/gin-toolbar-custom-menu" and select the menu you want to show and the user roles you want to show it to.') . '</p>';
+      $output .= '<h3>' . t('Credits') . '</h3>';
+      $output .= '<p>' . t('Powered by <a href="http://javali.pt/">Javali</a>.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Registry alter().
+ */
+function gin_toolbar_custom_menu_theme_registry_alter(&$theme_registry) {
+  $theme_registry['navigation']['preprocess functions'][] = 'gin_toolbar_custom_menu_preprocess_navigation';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gin_toolbar_custom_menu_preprocess_navigation(&$variables) {
+  if (_gin_toolbar_gin_is_active()) {
+    $menu_items = _gin_toolbar_custom_menu_get_menu_items($variables);
+
+    if (!empty($menu_items)) {
+      if (!empty($variables['core_navigation']) && $variables['core_navigation']) {
+        foreach ($variables['content']['content'] as $key => $value) {
+          if (!empty($value['content']['#menu_name']) && $value['content']['#menu_name'] == 'admin' && !empty($value['content']['#items'])) {
+            $variables['content']['content'][$key]['content']['#items'] = $menu_items;
+            $variables['#attached']['library'][] = 'gin_toolbar_custom_menu/toolbar';
+          }
+        }
+      }
+      else {
+        if (isset($variables['menu_middle']['admin']['#items'])) {
+          $variables['menu_middle']['admin']["#items"] = $menu_items;
+          $variables['#attached']['library'][] = 'gin_toolbar_custom_menu/toolbar';
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gin_toolbar_custom_menu_preprocess_menu_region__middle(&$variables) {
+  if ($variables['menu_name'] == 'admin') {
+    $settings_to_apply = _gin_toolbar_custom_menu_get_setting();
+    if (!empty($settings_to_apply)) {
+      foreach ($settings_to_apply as $setting_to_apply) {
+        $icons = $setting_to_apply['icons'] ?? NULL;
+        foreach ($variables["items"] as &$element) {
+          $definition = $element['original_link']->getPluginDefinition();
+          $id = str_replace('.', '_', $definition['id']);
+          if (!empty($icons[$id])) {
+            $element['class'] = Html::cleanCssIdentifier('toolbar-icon-' . $icons[$id]);
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_toolbar_alter().
+ */
+function gin_toolbar_custom_menu_toolbar_alter(&$items) {
+  // Make sure toolbar is active.
+  if (!_gin_toolbar_gin_is_active()) {
+    return;
+  }
+  $items['administration']['tray']['toolbar_administration']['#pre_render'][] = [
+    GinToolbarCustomMenu::class,
+    'preRenderTray',
+  ];
+}
+
+/**
+ * Adds toolbar-specific attributes to the menu link tree.
+ *
+ * @param \Drupal\Core\Menu\MenuLinkTreeElement[] $tree
+ *   The menu link tree to manipulate.
+ *
+ * @return \Drupal\Core\Menu\MenuLinkTreeElement[]
+ *   The manipulated menu link tree.
+ */
+function gin_toolbar_custom_menu_toolbar_menu_navigation_links(array $tree) {
+  if (!_gin_toolbar_gin_is_active()) {
+    return $tree;
+  }
+
+  $settings_to_apply = _gin_toolbar_custom_menu_get_setting();
+  if (!empty($settings_to_apply)) {
+    foreach ($settings_to_apply as $setting_to_apply) {
+      $icons = $setting_to_apply['icons'] ?? NULL;
+
+      foreach ($tree as $element) {
+        if ($element->subtree) {
+          gin_toolbar_custom_menu_toolbar_menu_navigation_links($element->subtree);
+        }
+
+        $definition = $element->link->getPluginDefinition();
+        $id = str_replace('.', '_', $definition['id']);
+        $classes = !empty($element->options['attributes']['class']) ? $element->options['attributes']['class'] : [];
+
+        if (!in_array('toolbar-icon', $classes)) {
+          $element->options['attributes']['class'][] = 'toolbar-icon';
+          $element->options['attributes']['class'][] = 'toolbar-button--icon';
+        }
+        if (!in_array('custom-toolbar-icon', $classes)) {
+          $system_path = $element->link->getUrlObject()->isRouted() ? $element->link->getUrlObject()->getInternalPath() : '';
+          if ($element->link->getUrlObject()->isRouted() && $element->link->getUrlObject()->getRouteName() === '<front>') {
+            $system_path = '<front>';
+          }
+          $path_replaced = str_replace(['.', ' ', '_', '/'], ['-', '-', '-', '-'], $system_path);
+          $system_path_string = strtolower($path_replaced);
+          $string = strtolower(str_replace(['.', ' ', '_'], ['-', '-', '-'], $definition['id']));
+
+          $element->options['attributes']['class'][] = 'custom-toolbar-icon';
+          $element->options['attributes']['class'][] = Html::cleanCssIdentifier('toolbar-icon-' . $system_path_string);
+          $element->options['attributes']['class'][] = Html::cleanCssIdentifier('toolbar-icon-' . $string);
+        }
+
+        if (!empty($icons[$id])) {
+          $element->options['attributes']['class'][] = Html::cleanCssIdentifier('toolbar-icon-' . $icons[$id]);
+        }
+
+        $element->options['attributes']['title'] = $element->link->getDescription();
+      }
+
+    }
+  }
+
+  return $tree;
+}
+
+/**
+ * Build the chosen menu.
+ *
+ * @param array $build
+ *   The built render array.
+ *
+ * @return array|bool
+ *   The menu items or FALSE.
+ */
+function _gin_toolbar_custom_menu_get_menu_items(&$build) {
+  $settings_to_apply = _gin_toolbar_custom_menu_get_setting();
+
+  if (!empty($settings_to_apply)) {
+    $menu_items = [];
+    foreach ($settings_to_apply as $setting_to_apply) {
+      $custom_menu = $setting_to_apply['menu'];
+      if ($custom_menu) {
+        $menu_tree = \Drupal::service('toolbar.menu_tree');
+        $activeTrail = \Drupal::service('gin_toolbar.active_trail')->getActiveTrailIds($custom_menu);
+        $parameters = (new MenuTreeParameters())
+          ->setActiveTrail($activeTrail)
+          ->setTopLevelOnly()
+          ->onlyEnabledLinks();
+
+        if (\Drupal::moduleHandler()->moduleExists('admin_toolbar')) {
+          $admin_toolbar_settings = \Drupal::config('admin_toolbar.settings');
+          $max_depth = $admin_toolbar_settings->get('menu_depth') ?? 4;
+          $parameters->setMaxDepth($max_depth);
+        }
+
+        $tree = $menu_tree->load($custom_menu, $parameters);
+        $manipulators = [
+          ['callable' => 'menu.default_tree_manipulators:checkAccess'],
+          ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
+          ['callable' => 'gin_toolbar_custom_menu_toolbar_menu_navigation_links'],
+        ];
+        $tree = $menu_tree->transform($tree, $manipulators);
+        $menu = $menu_tree->build($tree);
+
+        // Ensure menu_items is not null & an array.
+        $menu_items = isset($menu["#items"]) && is_array($menu["#items"]) ? array_merge($menu_items, $menu["#items"]) : $menu_items;
+        $build['#cache']['contexts'][] = 'route.menu_active_trails:' . $custom_menu;
+      }
+    }
+
+    return $menu_items;
+  }
+
+  return FALSE;
+}
+
+/**
+ * Helper function to get the setting to apply to current user.
+ */
+function _gin_toolbar_custom_menu_get_setting() {
+  $user_roles = \Drupal::currentUser()->getRoles();
+  $config = \Drupal::config('gin_toolbar_custom_menu.settings');
+  $settings = $config->get('settings');
+
+  if (empty($user_roles) || !is_array($user_roles) || empty($settings)) {
+    return FALSE;
+  }
+
+  $setting_to_apply = [];
+  foreach ($settings as $key => $setting) {
+    foreach ($setting['role'] as $role) {
+      if (in_array($role, array_values($user_roles))) {
+        $setting_to_apply[$key] = $setting;
+      }
+    }
+  }
+
+  foreach ($setting_to_apply as $key => $setting) {
+    if (!isset($setting['excluded_role'])) {
+      continue;
+    }
+    foreach ($setting['excluded_role'] as $role) {
+      if (in_array($role, array_values($user_roles))) {
+        unset($setting_to_apply[$key]);
+      }
+    }
+  }
+
+  return $setting_to_apply;
+}

@@ -31,7 +31,10 @@
   }
 }
 
+p {
+    font: var(--the7-h2-font-style, normal) normal var(--the7-h2-font-weight, normal) var(--the7-h2-font-size, 1.5rem) / var(--the7-h2-line-height, 1.2) var(--the7-h2-font-family, "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", serif);
 
+}
 
 h2 {
   margin: 0 0 1rem;
@@ -58,16 +61,6 @@ h2::after {
   height: 3px;
   background: rgb(123, 158, 120);
   border-radius: 10px;
-}
-
-p {
-  margin: 0 0 1rem;
-  font-family: "Nunito Sans", "Avenir Next", "Segoe UI", sans-serif;
-  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-  font-weight: 500;
-  line-height: 1.45;
-  letter-spacing: 0.005em;
-  color: #2f3a4b;
 }
 
 /* Logo y eslogan */
@@ -470,10 +463,6 @@ p {
   }
 }
 
-/* Espaciado entre secciones de Layout Builder en contenidos */
-.solo-clear.node__content > .layout + .layout {
-  margin-top: clamp(2rem, 4vw, 4rem);
-}
 
 /* Degradado vertical para la landing dentro del bloque principal */
 #block-lucia-front-content .node--type-landing.node--view-mode-full .node__content {
@@ -657,9 +646,11 @@ p {
   padding: clamp(1.25rem, 2.6vw, 2.6rem) clamp(1.15rem, 2.8vw, 2.8rem);
 }
 
+/*
 .block-block-content p {
   font: var(--the7-h2-font-style, normal) normal var(--the7-h2-font-weight, normal) var(--the7-h2-font-size, 2rem) / var(--the7-h2-line-height, 1.2) var(--the7-h2-font-family, "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", serif);
 }
+*/
 
 #block-lucia-front-content > article > div > div.layout.layout--twocol-section.layout--twocol-section--33-67 > div.layout__region.layout__region--second {
 padding-left: 2.5rem;
@@ -979,3 +970,807 @@ padding-left: 2.5rem;
 
   
 
+/** LA HABITACION*/
+
+/*
+.path-node-3 #block-lucia-front-content {
+  padding: 2%;
+  border-right:solid 5px #D8D9C1;
+  border-left: solid 5px #D8D9C1;
+}
+*/
+
+.path-node-3 .node__content,
+.path-node-7 .node__content,
+.path-node-23 .node__content{
+  background-color: #f4f5f0;
+}
+
+.path-node-3 .layout-parent-1,
+.path-node-7 .layout-parent-1,
+.path-node-23 .layout-parent-1,
+.path-node-24 .layout-parent-1 {
+  padding: 2.5rem 0;
+  border-bottom-left-radius: 3%;
+  border-bottom-right-radius: 3%;
+}
+.path-node-24 .layout-parent-1 {
+   background-color: #f4f5f0;
+}
+
+
+.path-node-3 .layout-parent-1 > div.layout__region.layout__region--first,
+.path-node-7 .layout-parent-1 > div.layout__region.layout__region--first,
+.path-node-23 .layout-parent-1 > div.layout__region.layout__region--first {
+  display: flex;
+  align-items: center;
+  padding-left: 8%;
+  padding-right: 4%;
+}
+
+.path-node-3 .layout-parent-1 > div.layout__region.layout__region--second,
+.path-node-7 .layout-parent-1 > div.layout__region.layout__region--second,
+.path-node-23 .layout-parent-1 > div.layout__region.layout__region--second {
+  display: flex;
+  align-items: center;
+  border-left: 1px solid #7a8a5a;
+  padding-left: 5%;
+  padding-right: 4%;
+}
+
+.path-node-3 .layout-parent-1 .layout__region--second section,
+.path-node-7 .layout-parent-1 .layout__region--second section,
+.path-node-23 .layout-parent-1 .layout__region--second section {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.path-node-3 .layout-parent-1 .layout__region--second section::before,
+.path-node-7 .layout-parent-1 .layout__region--second section::before,
+.path-node-23 .layout-parent-1 .layout__region--second section::before {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 40px;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 38'><path d='M10 36 Q9 26 10 20 Q11 12 10 2' stroke='%235a6a40' stroke-width='1.2' fill='none' stroke-linecap='round'/><path d='M10 28 Q3 24 5 18 Q9 21 10 28' fill='%236b7b4a'/><path d='M10 22 Q18 18 16 12 Q12 15 10 22' fill='%236b7b4a'/><path d='M10 15 Q3 11 4 6 Q8 9 10 15' fill='%236b7b4a'/></svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.path-node-3 p {
+  margin-left: 5%;
+  font: var(--the7-h2-font-style, normal) normal var(--the7-h2-font-weight, normal) var(--the7-h2-font-size, 1.5rem) / var(--the7-h2-line-height, 1.2) var(--the7-h2-font-family, "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", serif);
+}
+
+.path-node-3 .layout-parent-1 .layout__region--first p,
+.path-node-7 .layout-parent-1 .layout__region--first p,
+.path-node-23 .layout-parent-1 .layout__region--first p {
+  font-family: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+  font-weight: 400;
+  color: #2e3a25;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.path-node-3 .layout-parent-1 .layout__region--first p::after,
+.path-node-7 .layout-parent-1 .layout__region--first p::after,
+.path-node-23 .layout-parent-1 .layout__region--first p::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 8px;
+  margin-top: 14px;
+  background-image:
+    radial-gradient(circle, #4d5a35 4px, transparent 4px),
+    linear-gradient(to right, #4d5a35, #4d5a35);
+  background-size: 8px 8px, calc(100% - 10px) 1px;
+  background-position: 0 50%, 10px 50%;
+  background-repeat: no-repeat;
+}
+
+.path-node-3 .layout-parent-1 .layout__region--second p,
+.path-node-7 .layout-parent-1 .layout__region--second p,
+.path-node-23 .layout-parent-1 .layout__region--second p {
+  font-family: "Nunito Sans", "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #3a4530;
+  margin: 0;
+  width: auto;
+}
+
+.path-node-3 .layout-parent-1 .layout__region--second .field--name-body,
+.path-node-7 .layout-parent-1 .layout__region--second .field--name-body,
+.path-node-23 .layout-parent-1 .layout__region--second .field--name-body {
+  display: block;
+}
+
+/* ── layout-parent-2 : full-width image ───────────────────────────────── */
+.path-node-3 .layout-parent-2 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── layout-parent-3 : intro text ─────────────────────────────────────── */
+.path-node-3 .layout-parent-3 {
+  padding: 2.2rem 5% 1.8rem;
+  border-top: 2rem solid #f4f5f0;
+}
+
+.path-node-3 .layout-parent-3 p {
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 1.68;
+  color: #456a68;
+  margin: 0 0 0.8rem;
+}
+
+/* eyebrow label */
+.path-node-3 .layout-parent-3 p:first-child {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: #b87060;
+  margin-bottom: 0.3rem;
+}
+
+/* large serif heading */
+.path-node-3 .layout-parent-3 p:nth-child(2) {
+  font-family: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 600;
+  color: #2e3025;
+  line-height: 1.15;
+  margin-bottom: 1.4rem;
+}
+
+.path-node-3 .layout-parent-3 p:nth-child(2) strong {
+  font-size: inherit;
+  color: inherit;
+}
+
+.path-node-3 .layout-parent-3 p strong {
+  color: #2e3025;
+}
+
+/* blockquote-style closing paragraph */
+.path-node-3 .layout-parent-3 p:last-child {
+  border-left: 3px solid #c8bfa8;
+  padding-left: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* ── layout-parent-4 : three-step columns ─────────────────────────────── */
+.path-node-3 .layout-parent-4 {
+  padding: 2.2rem 0 2.8rem;
+  border-top: 1px solid #d0d3c8;
+  counter-reset: step-col;
+}
+
+.path-node-3 .layout-parent-4 .layout__region {
+  counter-increment: step-col;
+  padding: 1.8rem 4%;
+}
+
+.path-node-3 .layout-parent-4 .layout__region--second,
+.path-node-3 .layout-parent-4 .layout__region--third {
+  border-left: 1px solid #d0d3c8;
+}
+
+.path-node-3 .layout-parent-4 .layout__region::before {
+  content: "0" counter(step-col);
+  display: block;
+  font-family: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 2.2rem;
+  font-style: italic;
+  font-weight: 400;
+  color: #8a9a60;
+  line-height: 1;
+  margin-bottom: 0.7rem;
+}
+
+.path-node-3 .layout-parent-4 h4 {
+  font-family: "Nunito Sans", "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #2e3025;
+  margin: 0 0 0.7rem;
+}
+
+.path-node-3 .layout-parent-4 p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #456a68;
+  margin: 0;
+}
+
+/* ── path-node-7 : talleres list & detail ────────────────────────────── */
+
+
+
+.path-node-7 p {
+  font: var(--the7-h2-font-style, normal) normal var(--the7-h2-font-weight, normal) var(--the7-h2-font-size, 1.5rem) / var(--the7-h2-line-height, 1.2) var(--the7-h2-font-family, "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", serif);
+}
+
+
+.path-node-7 .layout-parent-2 {
+  border-top: 2rem solid #f4f5f0;
+  border-bottom: 1px solid #d6d9cc;
+  padding-bottom: 2rem;
+}
+
+.path-node-7 .layout-parent-2 .layout__region--first {
+  border-right: 1px solid #d6d9cc;
+  padding: 1rem 0;
+}
+
+.path-node-7 .layout-parent-2 .layout__region--second {
+  padding: 0;
+}
+
+.path-node-7 .view-display-id-block_2 .solo-table-wrapper,
+.path-node-7 .view-display-id-block_1 .solo-table-wrapper {
+  border: none;
+  box-shadow: none;
+}
+
+.path-node-7 .view-display-id-block_2 table,
+.path-node-7 .view-display-id-block_2 tbody,
+.path-node-7 .view-display-id-block_1 table,
+.path-node-7 .view-display-id-block_1 tbody {
+  display: block;
+  background: transparent;
+  width: 100%;
+}
+
+/* ─ List (block_2) : numbered items ─ */
+.path-node-7 .view-display-id-block_2 tbody {
+  counter-reset: taller-item;
+}
+
+.path-node-7 .view-display-id-block_2 tr {
+  display: block;
+  counter-increment: taller-item;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid #e0e2d8;
+  box-shadow: inset 0 0 0 #7a8a5a;
+  transition: background-color 0.18s ease, box-shadow 0.18s ease;
+  position: relative;
+}
+
+.path-node-7 .view-display-id-block_2 tr:hover {
+  background-color: rgba(122, 138, 90, 0.06);
+  box-shadow: inset 3px 0 0 #7a8a5a;
+}
+
+.path-node-7 .view-display-id-block_2 tr:first-child {
+  border-top: 1px solid #e0e2d8;
+}
+
+/* counter rendered as "01 / 02 / 03" */
+.path-node-7 .view-display-id-block_2 tr::before {
+  content: "0" counter(taller-item);
+  display: block;
+  font-family: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #8a9a60;
+  margin-bottom: 0.25rem;
+  line-height: 1;
+}
+
+.path-node-7 .view-display-id-block_2 td {
+  display: block;
+  padding: 0;
+  border: none;
+}
+
+.path-node-7 .view-display-id-block_2 td a {
+  font-family: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #2e3025;
+  text-decoration: none;
+  display: block;
+  line-height: 1.3;
+}
+
+.path-node-7 .view-display-id-block_2 td a:hover {
+  color: #7a8a5a;
+}
+
+/* ─ Detail (block_1) : image → label → title → description ─ */
+.path-node-7 .view-display-id-block_1 tr {
+  display: grid;
+  grid-template-areas: "img" "title" "desc";
+  grid-template-columns: 1fr;
+}
+
+.path-node-7 .view-display-id-block_1 td {
+  padding: 0;
+  border: none;
+}
+
+.path-node-7 .view-display-id-block_1 .views-field-field-imagen {
+  grid-area: img;
+  width: auto;
+}
+
+.path-node-7 .view-display-id-block_1 .views-field-field-imagen img {
+  width: 100%;
+  height: auto;
+  /*max-height: 320px;*/
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+}
+
+.path-node-7 .view-display-id-block_1 .views-field-title {
+  grid-area: title;
+  border-right: none;
+  padding: 1.4rem 1.8rem 0;
+}
+
+/* "TALLER" eyebrow injected before the title link */
+.path-node-7 .view-display-id-block_1 .views-field-title::before {
+  content: "TALLER";
+  display: block;
+  font-family: "Nunito Sans", "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #b87060;
+  margin-bottom: 0.45rem;
+}
+
+.path-node-7 .view-display-id-block_1 .views-field-title a {
+  font-family: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-style: italic;
+  font-weight: 400;
+  color: #2e3025;
+  text-decoration: none;
+  display: block;
+  line-height: 1.15;
+  writing-mode: initial;
+  transform: none;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #d6d9cc;
+}
+
+.path-node-7 .view-display-id-block_1 .views-field-field-descripcion {
+  grid-area: desc;
+  padding: 0.9rem 1.8rem 2rem;
+}
+
+.path-node-7 .view-display-id-block_1 .views-field-field-descripcion p {
+  font-size: 1.5rem;
+  line-height: 1.65;
+  color: #456a68;
+  margin: 0 0 0.7rem;
+}
+
+.path-node-7 .view-display-id-block_1 .views-field-field-descripcion a {
+  color: #456a68;
+  text-decoration-color: rgba(69, 106, 104, 0.35);
+}
+
+/* ── path-node-23 : El cuaderno ───────────────────────────────────────── */
+
+.path-node-23 p {
+  font: var(--the7-h2-font-style, normal) normal var(--the7-h2-font-weight, normal) var(--the7-h2-font-size, 1.5rem) / var(--the7-h2-line-height, 1.2) var(--the7-h2-font-family, "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", serif);
+}
+
+/* ─ Detail article (layout-parent-2 / block_1) ─ */
+.path-node-23 .layout-parent-2 {
+  max-width: 85%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.path-node-23 .layout-parent-2 .solo-table-wrapper {
+  border: none;
+  box-shadow: none;
+}
+
+.path-node-23 .layout-parent-2 table,
+.path-node-23 .layout-parent-2 tbody,
+.path-node-23 .layout-parent-2 tr {
+  display: block;
+  background: transparent;
+  padding: 0;
+}
+
+.path-node-23 .layout-parent-2 td {
+  display: block;
+  padding: 0;
+  border: none;
+}
+
+.path-node-23 .layout-parent-2 .views-field-title a {
+  font-family: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-style: italic;
+  font-weight: 400;
+  color: #2e3025;
+  text-decoration: none;
+  display: block;
+  line-height: 1.15;
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid #d6d9cc;
+}
+
+.path-node-23 .layout-parent-2 .views-field-field-texto p {
+  font-size: 1.5rem;
+  line-height: 1.72;
+  color: #3a4530;
+  margin: 0 0 1rem;
+  padding: 1%;
+}
+
+.path-node-23 .layout-parent-2 .views-field-field-texto blockquote,
+.path-node-23 .layout-parent-2 .views-field-field-texto blockquote p {
+  border-left: 3px solid #c8bfa8;
+  padding-left: 1.2rem;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #5a6040;
+  margin: 1.4rem 0;
+}
+
+.path-node-23 .layout-parent-2 .views-field-field-texto a {
+  color: #456a68;
+  text-decoration-color: rgba(69, 106, 104, 0.35);
+}
+
+/* ─ Recent entries list (layout-parent-3 / block_2) ─ */
+.path-node-23 .layout-parent-3:not(.admin-toolbar) {
+  background-color: #D8D9C1;
+  padding: 2.5rem 5% 3rem;
+}
+
+.path-node-23 .layout-parent-3:not(.admin-toolbar) .solo-table-wrapper {
+  border: none;
+  box-shadow: none;
+}
+
+.path-node-23 .layout-parent-3:not(.admin-toolbar) table,
+.path-node-23 .layout-parent-3:not(.admin-toolbar) tbody {
+  display: block;
+  background: transparent;
+  width: 100%;
+}
+
+.path-node-23 .layout-parent-3:not(.admin-toolbar) tr {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding:1%;
+  border-bottom: 1px solid rgba(74, 80, 54, 0.18);
+}
+
+.path-node-23 .layout-parent-3:not(.admin-toolbar) tr:first-child {
+  border-top: 1px solid rgba(74, 80, 54, 0.18);
+}
+
+.path-node-23 .layout-parent-3:not(.admin-toolbar) td {
+  padding: 0;
+  border: none;
+}
+
+.path-node-23 .layout-parent-3:not(.admin-toolbar) .views-field-title {
+  flex: 0 0 28%;
+  width: 28%;
+}
+
+.path-node-23 .layout-parent-3:not(.admin-toolbar) .views-field-title a {
+  font-family: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 400;
+  color: #2e3025;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.path-node-23 .layout-parent-3:not(.admin-toolbar) .views-field-title a:hover {
+  color: #7a8a5a;
+}
+
+/* clamp applies to the td itself to cover bare text nodes too */
+.path-node-23 .layout-parent-3:not(.admin-toolbar) .views-field-field-texto {
+  flex: 1 1 auto;
+  font-family: "Nunito Sans", "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #456a68;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.path-node-23 .layout-parent-3:not(.admin-toolbar) .views-field-field-texto p {
+  font: inherit;
+  color: inherit;
+  margin: 0;
+}
+
+.path-node-23 .layout-parent-3:not(.admin-toolbar) .views-field-field-texto p + p {
+  display: none;
+}
+
+.path-node-23 .layout-parent-3:not(.admin-toolbar) .view-footer {
+  margin-top: 1.25rem;
+  text-align: right;
+}
+
+.path-node-23 .layout-parent-3:not(.admin-toolbar) .view-footer a {
+  display: inline-block;
+  padding: 0.55rem 1.4rem;
+  font-family: "Nunito Sans", "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgb(123, 158, 120);
+  border: 1.5px solid rgb(123, 158, 120);
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.path-node-23 .layout-parent-3:not(.admin-toolbar) .view-footer a:hover,
+.path-node-23 .layout-parent-3:not(.admin-toolbar) .view-footer a:focus {
+  background: rgb(123, 158, 120);
+  color: #f4f5f0;
+}
+
+/* ============================================================
+   Hemeroteca — node 24
+   ============================================================ */
+
+/* Header section: Hemeroteca title + description */
+.node--id-24 .layout-parent-1 {
+  position: relative;
+  z-index: 1;
+}
+
+.node--id-24 .layout-parent-1 .layout__region--first {
+  display: flex;
+  align-items: center;
+  padding-left: 8%;
+  padding-right: 4%;
+}
+
+.node--id-24 .layout-parent-1 h2 {
+  margin-bottom: 0;
+}
+
+.node--id-24 .layout-parent-1 .layout__region--second {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-left: 5%;
+  padding-right: 4%;
+}
+
+/* Decorative asterisk before description */
+.node--id-24 .layout-parent-1 .layout__region--second::before {
+  content: "✽";
+  font-size: 1.05rem;
+  color: #7b9e78;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+  line-height: 1.6;
+}
+
+.node--id-24 .layout-parent-1 .layout__region--second .field__item p,
+.node--id-24 .layout-parent-1 .layout__region--second p {
+  font-family: "Nunito Sans", "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.88rem;
+  color: #6b7280;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Views section */
+.node--id-24 .layout-parent-2 {
+  max-width: 85%;
+  margin: 0 auto 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Reset the Solo form wrappers inside the views filter */
+.node--id-24 .view-filters,
+.node--id-24 .views-exposed-form,
+.node--id-24 .solo-block.exposed-form {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+/* Tab filter buttons */
+.hemeroteca-tabs {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  padding: 1.25rem 0 1.25rem;
+  border-bottom: 1px solid var(--r-br, #cbced7);
+  margin-bottom: 0;
+}
+
+.hemeroteca-tab {
+  font-family: "Nunito Sans", "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #6b7280;
+  text-decoration: none;
+  padding: 0.28rem 0.9rem;
+  border: 1px solid #d1d5db;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.hemeroteca-tab:hover {
+  background-color: #9ca3af;
+  color: #f4f5f0;
+}
+
+.hemeroteca-tab--active {
+  border: 2px solid #2e3f52;
+}
+
+.hemeroteca-tab--active:hover {
+  color: #f4f5f0;
+}
+
+/* Hemeroteca row list */
+.hemeroteca-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.hemeroteca-row {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr auto;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--r-br, #cbced7);
+}
+
+.hemeroteca-row__category {
+  font-family: "Nunito Sans", "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #7b9e78;
+  line-height: 1.6;
+}
+
+.hemeroteca-row__title a {
+  font-family: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 500;
+  color: #2e3f52;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.hemeroteca-row__title a:hover {
+  color: #7b9e78;
+}
+
+.hemeroteca-row__date {
+  font-family: "Nunito Sans", "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+/* Pager */
+.node--id-24 .pager {
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+  margin: 2rem 0 1rem;
+  list-style: none;
+  padding: 0;
+  background-color: #f4f5f0;
+}
+
+.node--id-24 .pager__item a,
+.node--id-24 .pager__item span {
+  font-family: "Nunito Sans", "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.8rem;
+  color: #6b7280;
+  text-decoration: none;
+  padding: 0.3rem 0.65rem;
+  display: inline-block;
+}
+
+.node--id-24 .pager__item--active a,
+.node--id-24 .pager__item--active span {
+  background: #2e3f52;
+  color: #f4f5f0;
+  border-color: #2e3f52;
+}
+
+.node--id-24 .pager__item a:hover {
+  color: #2e3f52;
+  border-color: #9ca3af;
+}
+
+
+
+.node--id-24 ul li {
+  background-color: #f4f5f0;
+}
+
+.node--id-24 ul li:hover {
+  background-color: #E3E7EC;
+}
+
+
+
+.node--id-24 ul {
+  background-color: #f4f5f0;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .node--id-24 .layout-parent-1 {
+    max-width: 95%;
+  }
+
+  .node--id-24 .layout-parent-2 {
+    max-width: 95%;
+  }
+
+  .hemeroteca-row {
+    grid-template-columns: 5.5rem 1fr auto;
+    gap: 0.5rem;
+  }
+
+  .hemeroteca-row__category {
+    font-size: 0.55rem;
+    letter-spacing: 1px;
+  }
+
+  .hemeroteca-row__title a {
+    font-size: 0.95rem;
+  }
+
+  .hemeroteca-tabs {
+    gap: 0.3rem;
+  }
+
+  .hemeroteca-tab {
+    font-size: 0.62rem;
+    padding: 0.25rem 0.7rem;
+    letter-spacing: 1.2px;
+  }
+}
+
+
+
+#block-lucia-front-content > article > div > div.layout.layout--twocol-section.layout--twocol-section--33-67.layout-parent-2 > div.layout__region.layout__region--first{
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,29 @@
+uuid: 22879304-cd68-4e56-a4a1-b32a6efa9cd6
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tipo_de_blog
+    - node.type.blog
+    - taxonomy.vocabulary.tipo_de_blog
+id: node.blog.field_tipo_de_blog
+field_name: field_tipo_de_blog
+entity_type: node
+bundle: blog
+label: 'Tipo de blog'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tipo_de_blog: tipo_de_blog
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

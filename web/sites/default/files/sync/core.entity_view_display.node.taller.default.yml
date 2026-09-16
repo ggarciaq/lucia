@@ -1,0 +1,39 @@
+uuid: 25bc038c-8389-49f6-9f4b-a7327202da6c
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.taller.field_descripcion
+    - field.field.node.taller.field_imagen
+    - node.type.taller
+  module:
+    - text
+    - user
+id: node.taller.default
+targetEntityType: node
+bundle: taller
+mode: default
+content:
+  field_descripcion:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_imagen:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,12 @@
+{% set base = form['#action'] %}
+{% set current = form.field_tipo_de_blog_target_id['#value'] ?? 'All' %}
+{% set options = form.field_tipo_de_blog_target_id['#options'] %}
+<div class="hemeroteca-tabs">
+  {% for value, label in options %}
+    {% set is_active = value == current or (value == 'All' and (current == 'All' or current is empty)) %}
+    {% set href = value == 'All' ? base : base ~ '?field_tipo_de_blog_target_id=' ~ value %}
+    <a href="{{ href }}" class="hemeroteca-tab{{ is_active ? ' hemeroteca-tab--active' : '' }}">
+      {{- value == 'All' ? 'TODAS' : label|upper -}}
+    </a>
+  {% endfor %}
+</div>

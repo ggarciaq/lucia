@@ -1,0 +1,21 @@
+uuid: dcc6675a-ec53-4ea3-82fb-b98168307e26
+langcode: es
+status: true
+dependencies: {  }
+name: imagen_mi_historia
+label: 'Imagen mi historia'
+effects:
+  821bf6b3-fb26-4e11-8ab2-29dbff780c91:
+    uuid: 821bf6b3-fb26-4e11-8ab2-29dbff780c91
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1280
+      height: 798
+      anchor: center-center
+  7c3db623-4d87-4349-b5e8-2405a538f49b:
+    uuid: 7c3db623-4d87-4349-b5e8-2405a538f49b
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

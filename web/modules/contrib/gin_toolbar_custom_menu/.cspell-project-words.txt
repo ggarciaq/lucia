@@ -1,0 +1,12 @@
+# List of words excluded from cspell validation for the project.
+
+addsetting
+backtosite
+Javali
+jmauricio
+João
+removesetting
+tmgmt
+toleft
+totop
+webform

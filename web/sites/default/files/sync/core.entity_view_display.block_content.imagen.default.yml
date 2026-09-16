@@ -5,7 +5,6 @@ dependencies:
   config:
     - block_content.type.imagen
     - field.field.block_content.imagen.field_imagen
-    - image.style.texto_imagen_lateral
   module:
     - media
 id: block_content.imagen.default
@@ -18,7 +17,7 @@ content:
     label: hidden
     settings:
       image_link: ''
-      image_style: texto_imagen_lateral
+      image_style: ''
       image_loading:
         attribute: lazy
     third_party_settings: {  }

@@ -1,0 +1,8 @@
+uuid: 80945077-6484-45ea-8efc-a569748c6b20
+langcode: es
+status: true
+dependencies: {  }
+id: editor
+label: Editor
+description: 'Menu para el rol Editor'
+locked: false

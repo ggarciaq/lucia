@@ -1,0 +1,5 @@
+name: Mi Breadcrumbs
+type: module
+description: 'Genera migas de pan dinámicas para el content type blog según la sección de origen (Hemeroteca / El Cuaderno).'
+package: Custom
+core_version_requirement: ^10 || ^11

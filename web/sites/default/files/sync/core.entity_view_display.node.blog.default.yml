@@ -1,0 +1,38 @@
+uuid: 86ffd38a-33c2-40a6-8842-a2c53ea10350
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.field.node.blog.field_texto
+    - field.field.node.blog.field_tipo_de_blog
+    - node.type.blog
+  module:
+    - text
+    - user
+id: node.blog.default
+targetEntityType: node
+bundle: blog
+mode: default
+content:
+  field_texto:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_tipo_de_blog:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
