@@ -5,6 +5,12 @@ core_version_requirement: ^10 || ^11
 description: 'Tema custom para el front'
 libraries:
   - lucia_front/lucia-front-global
+  - lucia_front/lucia-mobile-menu
+
+libraries-override:
+  solo/solo-menu:
+    js:
+      js/menu/solo-menu-mobile.js: false
 
 #Regions
 regions:
