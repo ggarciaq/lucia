@@ -1,4 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap');
+
+/* Standalone mobile menu toggle (lucia_front/lucia-mobile-menu.js), independent from Solo's JS state manager. */
+@media (max-width: 991.98px) {
+  .navigation__menubar.navigation__responsive {
+    display: none !important;
+  }
+
+  .navigation__menubar.navigation__responsive.lucia-menu-open {
+    display: flex !important;
+  }
+}
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600&display=swap');
 
 .page-wrapper {

@@ -5,3 +5,10 @@ lucia-front-global:
 
   js:
     js/lucia-front-script.js: {}
+
+lucia-mobile-menu:
+  js:
+    js/lucia-mobile-menu.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
