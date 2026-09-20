@@ -9,6 +9,3 @@ lucia-front-global:
 lucia-mobile-menu:
   js:
     js/lucia-mobile-menu.js: {}
-  dependencies:
-    - core/drupal
-    - core/once
