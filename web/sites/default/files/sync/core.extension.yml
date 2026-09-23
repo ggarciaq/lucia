@@ -57,7 +57,6 @@ module:
 theme:
   claro: 0
   gin: 0
-  radix_starterkit: 0
   solo: 0
   lucia_front: 0
 profile: standard
