@@ -15,20 +15,19 @@
 
   const MOBILE_QUERY = '(max-width: 991.98px)';
 
-  function initLuciaMobileMenu() {
-    document.querySelectorAll('.mobile-nav .mobile-menubar-toggler-button').forEach((button) => {
+  function bindButton(button) {
       if (button.dataset.luciaMobileMenuBound) {
         return;
       }
-      button.dataset.luciaMobileMenuBound = 'true';
-
-      const nav = button.closest('nav');
+      const menu = button.closest('.solo-menu')?.querySelector('.navigation__menubar')
+        || button.parentElement?.parentElement?.querySelector('.navigation__menubar');
       const wrapper = button.closest('.mobile-nav');
-      const menu = nav ? nav.querySelector('.navigation__menubar') : null;
 
       if (!menu) {
         return;
       }
+
+      button.dataset.luciaMobileMenuBound = 'true';
 
       const closeMenu = () => {
         menu.classList.remove('lucia-menu-open');
@@ -48,7 +47,9 @@
         button.setAttribute('aria-expanded', 'true');
       };
 
-      button.addEventListener('click', () => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
         if (menu.classList.contains('lucia-menu-open')) {
           closeMenu();
         }
@@ -57,30 +58,53 @@
         }
       });
 
-      // Close the menu once a link inside it is followed.
       menu.addEventListener('click', (event) => {
         if (event.target.closest('a')) {
           closeMenu();
         }
       });
 
-      // Always reset to a closed state when crossing the breakpoint.
       const mediaQuery = window.matchMedia(MOBILE_QUERY);
       if (mediaQuery.addEventListener) {
         mediaQuery.addEventListener('change', closeMenu);
       }
       else if (mediaQuery.addListener) {
-        // Fallback for older Safari.
         mediaQuery.addListener(closeMenu);
       }
+    }
+
+  function initLuciaMobileMenu() {
+    document.querySelectorAll('.mobile-nav .mobile-menubar-toggler-button').forEach((button) => {
+      bindButton(button);
+    });
+  }
+
+  function handleDelegatedClick(event) {
+    const button = event.target.closest?.('.mobile-nav .mobile-menubar-toggler-button');
+    if (button) {
+      bindButton(button);
+      if (!button.dataset.luciaMobileMenuBound) {
+        return;
+      }
+    }
+  }
+
+  document.addEventListener('click', handleDelegatedClick, true);
+
+  function initWhenReady() {
+    document.querySelectorAll('.mobile-nav .mobile-menubar-toggler-button').forEach((button) => {
+      if (button.dataset.luciaMobileMenuBound) {
+        return;
+      }
+      bindButton(button);
     });
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLuciaMobileMenu);
+    document.addEventListener('DOMContentLoaded', initWhenReady);
   }
   else {
-    initLuciaMobileMenu();
+    initWhenReady();
   }
 
   // Also expose as a Drupal behavior so it re-runs for AJAX/BigPipe content;
