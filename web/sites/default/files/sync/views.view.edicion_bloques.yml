@@ -4,8 +4,11 @@ status: true
 dependencies:
   config:
     - block_content.type.enlace
+    - user.role.administrator
+    - user.role.content_editor
   module:
     - block_content
+    - user
 id: edicion_bloques
 label: 'Edicion Bloques'
 module: views
@@ -169,8 +172,11 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            content_editor: content_editor
+            administrator: administrator
       cache:
         type: tag
         options: {  }
@@ -359,6 +365,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
   page_1:
     id: page_1
@@ -385,6 +392,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
   page_2:
     id: page_2
@@ -553,6 +561,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
   page_3:
     id: page_3
@@ -721,6 +730,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
   page_4:
     id: page_4
@@ -889,6 +899,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
   page_5:
     id: page_5
@@ -1057,4 +1068,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
