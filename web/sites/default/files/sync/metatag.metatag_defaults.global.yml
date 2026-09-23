@@ -1,0 +1,13 @@
+uuid: 59d047f7-1023-4861-b90f-1b63a0a21443
+langcode: es
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
+id: global
+label: Global
+tags:
+  canonical_url: '[current-page:url]'
+  title: 'Lucia Nieto | [site:name]'
+  description: 'Lucia Nieto: conoce su trabajo, sus proyectos y su forma de acompañar cada proceso.'
+  robots: 'index, follow'

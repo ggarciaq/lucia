@@ -1,0 +1,25 @@
+keep_admin_menu: 0
+settings:
+  -
+    menu: editor
+    role:
+      content_editor: content_editor
+      anonymous: '0'
+      authenticated: '0'
+      administrator: '0'
+    excluded_role:
+      anonymous: '0'
+      authenticated: '0'
+      content_editor: '0'
+      administrator: '0'
+    icons:
+      'menu_link_content:d3eb85ef-e61e-4398-99ac-dbfc98e105ad': database-view
+      'menu_link_content:751fd300-1ea1-4278-99d2-388d3be8e9d1': circle-view
+      'menu_link_content:fbeeb0a4-a7a2-4dfa-a693-58ec49cb90a2': info-view
+      'menu_link_content:81322627-866d-485b-8aba-8cdc68a61e80': asterisk-view
+      'menu_link_content:900c1412-60c7-4ae5-abe1-abdff2666379': show-view
+      'menu_link_content:785abd14-58a8-4a4d-b6fb-ee88c75c9818': media-edit-view
+      'menu_link_content:0912b757-ac46-4a0d-8036-2a134f5b809c': people-view
+    admin_menu: show
+    actions:
+      remove_setting: 'Eliminar regla'
