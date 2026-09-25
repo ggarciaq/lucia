@@ -152,7 +152,9 @@ logo:
   use_default: false
   path: 'public://logo.png'
 favicon:
-  use_default: true
+  use_default: false
+  path: themes/custom/lucia_front/favicon.svg
+  mimetype: image/svg+xml
 comment_heading_first: true
 comment_title_tag: h3
 comment_show_permalink: true
