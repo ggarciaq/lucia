@@ -12,3 +12,8 @@ tags:
   title: 'Lucia Nieto'
   description: 'Lucia Nieto: conoce su trabajo, sus proyectos y su forma de acompañar cada proceso.'
   robots: 'index, follow'
+  og_title: 'Lucia Nieto'
+  og_description: 'Lucia Nieto: conoce su trabajo, sus proyectos y su forma de acompañar cada proceso.'
+  og_url: '[site:url]'
+  og_type: website
+  twitter_cards_type: summary

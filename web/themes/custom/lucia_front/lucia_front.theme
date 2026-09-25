@@ -18,6 +18,29 @@ function lucia_front_preprocess_node(array &$variables): void {
 }
 
 /**
+ * Adds the site's identity structured data to the front page.
+ */
+function lucia_front_preprocess_html(array &$variables): void {
+  if (!\Drupal::service('path.matcher')->isFrontPage()) {
+    return;
+  }
+
+  $variables['#attached']['html_head'][] = [
+    [
+      '#tag' => 'script',
+      '#attributes' => ['type' => 'application/ld+json'],
+      '#value' => json_encode([
+        '@context' => 'https://schema.org',
+        '@type' => 'WebSite',
+        'name' => 'Lucia Nieto',
+        'url' => 'https://www.lucianieto.es/',
+      ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+    ],
+    'lucia_front_website_schema',
+  ];
+}
+
+/**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function lucia_front_theme_suggestions_block_alter(&$suggestions, $variables) {
@@ -242,4 +265,27 @@ function lucia_front_preprocess_block__block_content__type__enlace(&$variables) 
   if ($style) {
     $variables['img_url'] = $style->buildUrl($file->getFileUri());
   }
+}
+
+/**
+ * Adds WebSite structured data to the front page attachments.
+ */
+function lucia_front_page_attachments(array &$attachments): void {
+  if (!\Drupal::service('path.matcher')->isFrontPage()) {
+    return;
+  }
+
+  $attachments['#attached']['html_head'][] = [
+    [
+      '#tag' => 'script',
+      '#attributes' => ['type' => 'application/ld+json'],
+      '#value' => json_encode([
+        '@context' => 'https://schema.org',
+        '@type' => 'WebSite',
+        'name' => 'Lucia Nieto',
+        'url' => 'https://www.lucianieto.es/',
+      ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+    ],
+    'lucia_front_website_schema',
+  ];
 }
